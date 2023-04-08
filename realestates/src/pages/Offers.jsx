@@ -1,5 +1,5 @@
-export default function Home() {
+export default function Offers() {
     return (
-        <div>Offers</div>
+      <div>Offers</div>
     )
-}
+  }

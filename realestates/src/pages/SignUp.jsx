@@ -1,5 +1,5 @@
-export default function Home() {
+export default function SignUp() {
     return (
-        <div>Sing In</div>
+      <div>Sign Up</div>
     )
-}
+  }

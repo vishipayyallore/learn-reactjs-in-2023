@@ -1,5 +1,5 @@
-export default function Home() {
+export default function Profile() {
     return (
-        <div>Profile</div>
+      <div>Profile</div>
     )
-}
+  }

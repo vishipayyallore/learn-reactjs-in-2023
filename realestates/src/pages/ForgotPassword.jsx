@@ -1,5 +1,5 @@
-export default function Home() {
+export default function ForgotPassword() {
     return (
-        <div>Foggot Password</div>
+      <div>Forgot Password</div>
     )
-}
+  }
