@@ -5,11 +5,14 @@ import { Link } from "react-router-dom";
 export default function SignIn() {
 
     const [showPassword, setShowPassword] = useState(false);
+
     const [formData, setFormData] = useState({
         email: "",
         password: "",
     });
+
     const { email, password } = formData;
+
     function onChange(e) {
         setFormData((prevState) => ({
             ...prevState,
