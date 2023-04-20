@@ -10,19 +10,24 @@ import { toast } from "react-toastify";
 
 export default function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
   });
+
   const { name, email, password } = formData;
+
   const navigate = useNavigate();
+
   function onChange(e) {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.id]: e.target.value,
     }));
   }
+
   async function onSubmit(e) {
     e.preventDefault();
 
@@ -49,6 +54,7 @@ export default function SignUp() {
       toast.error("Something went wrong with the registration");
     }
   }
+
   return (
     <section>
       <h1 className="text-3xl text-center mt-6 font-bold">Sign Up</h1>
