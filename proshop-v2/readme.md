@@ -6,4 +6,6 @@
 
 ```bash
 npx create-react-app frontend
+
+npm i react-bootstrap bootstrap react-icons
 ```
