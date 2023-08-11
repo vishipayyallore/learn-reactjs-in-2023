@@ -1,5 +1,6 @@
 import React from "react";
 
+// Destructuring props in the function signature
 export default function TodoItems({ entries, deleteItem }) {
   return (
     <ul className="mt-3">
