@@ -1,4 +1,23 @@
+# Houses
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+```bash
+npx create-next-app globomantics
+
+PS C:\GitHub\learn-reactjs-in-2023> npx create-next-app globomantics
+√ Would you like to use TypeScript? ... No / Yes
+√ Would you like to use ESLint? ... No / Yes
+√ Would you like to use Tailwind CSS? ... No / Yes
+√ Would you like to use `src/` directory? ... No / Yes
+√ Would you like to use App Router? (recommended) ... No / Yes
+√ Would you like to customize the default import alias? ... No / Yes
+Creating a new Next.js app in C:\GitHub\learn-reactjs-in-2023\globomantics.
+
+Using npm.
+
+Initializing project with template: default
+```
 
 ## Getting Started
 
