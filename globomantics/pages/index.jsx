@@ -1,7 +1,9 @@
+import App from "@/components/app";
+
 const Index = () => {
   return (
     <div>
-      <h1>Home Page</h1>
+      <App />
     </div>
   );
 };
