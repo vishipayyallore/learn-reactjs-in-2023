@@ -1,6 +1,3 @@
-import '@/styles/globals.css'
-import '@/styles/Home.module.css'
-
 import Banner from "./banner";
 
 const App = () => {
