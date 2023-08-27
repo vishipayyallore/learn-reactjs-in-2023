@@ -1,4 +1,5 @@
 import Banner from "./banner";
+import HouseList from "./houseList";
 
 const App = () => {
     return (
@@ -6,6 +7,7 @@ const App = () => {
             <Banner>
                 <div>Providing houses all over the world</div>
             </Banner>
+            <HouseList />
         </>
     );
 };
