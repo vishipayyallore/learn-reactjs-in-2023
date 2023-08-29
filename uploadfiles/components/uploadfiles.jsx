@@ -33,7 +33,7 @@ const UploadFiles = () => {
     };
 
     return (
-        <div className="container border border-primary rounded-2 p-2">
+        <div className="container border border-primary rounded-2 p-2 shadow-lg">
             <h1>Upload Files</h1>
             <div>
                 <input type="file" accept=".png" onChange={(e) => handleFileChange(e, setImage)} />
