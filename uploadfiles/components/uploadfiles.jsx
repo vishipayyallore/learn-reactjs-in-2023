@@ -32,15 +32,37 @@ const UploadFiles = () => {
         }
     };
 
+    const handleClear = () => {
+        setImage(null);
+        setFile1(null);
+        setFile2(null);
+
+        // Reset file input values
+        const fileInputs = document.querySelectorAll('input[type="file"]');
+        fileInputs.forEach(input => {
+            input.value = '';
+        });
+    };
+
     return (
-        <div className="container border border-primary rounded-2 p-2 shadow-lg">
-            <h1>Upload Files</h1>
-            <div>
-                <input type="file" accept=".png" onChange={(e) => handleFileChange(e, setImage)} />
-                <input type="file" accept=".txt" onChange={(e) => handleFileChange(e, setFile1)} />
-                <input type="file" accept=".txt" onChange={(e) => handleFileChange(e, setFile2)} />
+        <div className="container border border-primary rounded-2 p-2 shadow-lg bg-light">
+            <h2 className="text-center">Background Image | Knowledge Base | OpenAI System Instructions</h2>
+            <div className="mb-3">
+                <label htmlFor="imageFile" className="form-label">Background Image (.PNG)</label>
+                <input type="file" className="form-control" id="imageFile" accept=".png" onChange={(e) => handleFileChange(e, setImage)} />
             </div>
-            <button onClick={handleUpload}>Upload</button>
+            <div className="mb-3">
+                <label htmlFor="file1" className="form-label">Knowledge Base File (.txt)</label>
+                <input type="file" className="form-control" id="file1" accept=".txt" onChange={(e) => handleFileChange(e, setFile1)} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="file2" className="form-label">OpenAI Instructions File (.txt)</label>
+                <input type="file" className="form-control" id="file2" accept=".txt" onChange={(e) => handleFileChange(e, setFile2)} />
+            </div>
+            <div className="mb-3">
+                <button className="btn btn-primary" onClick={handleUpload}>Upload</button>
+                <button className="btn btn-danger me-2" onClick={handleClear}>Clear</button>
+            </div>
         </div>
     );
 };
