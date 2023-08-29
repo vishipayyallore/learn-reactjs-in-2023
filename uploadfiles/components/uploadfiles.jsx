@@ -45,7 +45,7 @@ const UploadFiles = () => {
     };
 
     return (
-        <div className="container border border-primary rounded-2 p-2 shadow-lg bg-light">
+        <div className="container border border-dark rounded-2 p-2 shadow-lg bg-light">
             <h2 className="text-center">Background Image | Knowledge Base | OpenAI System Instructions</h2>
             <div className="mb-3">
                 <label htmlFor="imageFile" className="form-label">Background Image (.PNG)</label>
@@ -60,8 +60,8 @@ const UploadFiles = () => {
                 <input type="file" className="form-control" id="file2" accept=".txt" onChange={(e) => handleFileChange(e, setFile2)} />
             </div>
             <div className="mb-3">
-                <button className="btn btn-primary" onClick={handleUpload}>Upload</button>
-                <button className="btn btn-danger me-2" onClick={handleClear}>Clear</button>
+                <button className="btn btn-primary me-2" onClick={handleUpload}>Upload</button>
+                <button className="btn btn-danger" onClick={handleClear}>Clear</button>
             </div>
         </div>
     );
