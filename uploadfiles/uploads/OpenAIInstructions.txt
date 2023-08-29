@@ -1,1 +1,1 @@
-data:text/plain;base64,VGhpcyBpcyBCIHNhbXBsZSBmaWxlLg==
+This is B sample file.
