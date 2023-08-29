@@ -13,9 +13,9 @@ const uploadToServer = async (req, res) => {
         }
 
         // Save uploaded files to the "uploads" directory
-        fs.writeFileSync(path.join(UPLOADS_DIR, 'image.jpg'), image, 'base64');
-        fs.writeFileSync(path.join(UPLOADS_DIR, 'file1.txt'), file1, 'utf-8');
-        fs.writeFileSync(path.join(UPLOADS_DIR, 'file2.txt'), file2, 'utf-8');
+        fs.writeFileSync(path.join(UPLOADS_DIR, 'bg.PNG'), image, 'base64');
+        fs.writeFileSync(path.join(UPLOADS_DIR, 'KB.txt'), file1, 'utf-8');
+        fs.writeFileSync(path.join(UPLOADS_DIR, 'OpenAIInstructions.txt'), file2, 'utf-8');
 
         res.status(200).send('Files uploaded successfully');
     } catch (error) {
