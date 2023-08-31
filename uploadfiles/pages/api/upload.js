@@ -19,15 +19,15 @@ const uploadToServer = async (req, res) => {
 
         // Decode and save uploaded files to the "uploads" directory
         if (image) {
-            decodeAndSaveFile(image, path.join(UPLOADS_DIR, 'bg.PNG'));
+            decodeAndSaveFile(image, path.join(UPLOADS_DIR, 'bg.png'));
         }
 
         if (file1) {
-            decodeAndSaveFile(file1, path.join(UPLOADS_DIR, 'KB.txt'));
+            decodeAndSaveFile(file1, path.join(UPLOADS_DIR, 'kb.txt'));
         }
 
         if (file2) {
-            decodeAndSaveFile(file2, path.join(UPLOADS_DIR, 'OpenAIInstructions.txt'));
+            decodeAndSaveFile(file2, path.join(UPLOADS_DIR, 'openaisystem.txt'));
         }
 
         res.status(200).send('Files uploaded successfully');
