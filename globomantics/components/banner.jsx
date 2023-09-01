@@ -4,7 +4,7 @@ import { logo } from "./banner.module.css";
 const subtitleStyle = {
   fontStyle: "italic",
   fontSize: "x-large",
-  color: "coral",
+  color: "#5070ff",
 };
 
 const Banner = ({ children }) => {

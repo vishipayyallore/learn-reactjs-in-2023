@@ -1,7 +1,12 @@
-.themeFontColor {
-  color: coral;
+body {
+  color: #5070ff;
 }
 
 tr {
   cursor: pointer;
+  color: #5070ff;
+}
+
+.themeFontColor {
+  color: rgb(80, 112, 255);
 }
