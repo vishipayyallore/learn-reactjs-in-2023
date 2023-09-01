@@ -1,6 +1,6 @@
-body {
+/* body {
   color: #5070ff;
-}
+} */
 
 tr {
   cursor: pointer;
@@ -8,5 +8,5 @@ tr {
 }
 
 .themeFontColor {
-  color: rgb(80, 112, 255);
+  color: #0220a6;
 }
