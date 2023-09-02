@@ -17,7 +17,7 @@ export default function Home() {
         </div>
       </div>
       <div className='flex justify-center p-5'>
-        <h1 className='font-semibold'>Welcome to my website</h1>
+        <h1 className='text-2xl font-semibold'>Welcome to my website</h1>
       </div>
     </>
   )
