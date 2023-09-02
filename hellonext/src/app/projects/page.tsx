@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-function Projects() {
+function Projects({ searchParams }: { searchParams: any }) {
     return (
         <>
             <div>
@@ -18,6 +18,14 @@ function Projects() {
                 </div>
 
                 <h1 className="text-2xl text-center">Current Projects</h1>
+
+                <h1>
+                    Query String: {JSON.stringify(searchParams)}
+                </h1>
+
+                <h1>
+                    Tech: {searchParams.tech}
+                </h1>
 
                 <div className="flex justify-center gap-10 p-10">
                     <Link href='/projects/1'>
