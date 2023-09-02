@@ -20,9 +20,9 @@ function ProjectInfo({ params }: any) {
                     </div>
                 </div>
 
-                <h1 className="text-2xl text-center">Project Details of - {projectid}</h1>
+                <h1 className="text-2xl text-center p-10">Project Details of - {projectid}</h1>
 
-                <div className="flex gap-10 text-xl p-5">
+                <div className="flex gap-10 text-xl p-10">
                     <Link href='/projects'>Back to Projects</Link>
 
                     <Link href={`/projects/${projectid}/reviews`}>Current Project Reviews</Link>
