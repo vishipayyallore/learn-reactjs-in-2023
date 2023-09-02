@@ -1,7 +1,10 @@
 import React from "react";
 import Link from "next/link";
 
-function ProjectInfo() {
+function ProjectInfo({ params }: any) {
+
+    const { projectid } = params;
+
     return (
         <>
             <div>
@@ -17,9 +20,7 @@ function ProjectInfo() {
                     </div>
                 </div>
 
-                <h1 className="text-2xl text-center">Project Details of - </h1>
-
-
+                <h1 className="text-2xl text-center">Project Details of - {projectid}</h1>
             </div>
         </>
     );
