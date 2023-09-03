@@ -1,5 +1,5 @@
 
-export default function Orders() {
+const Orders = () => {
   return (
     <>
       <div>
@@ -7,4 +7,6 @@ export default function Orders() {
       </div>
     </>
   )
-}
+};
+
+export default Orders;
