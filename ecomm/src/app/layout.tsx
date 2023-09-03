@@ -13,7 +13,7 @@ const RootLayout = ({ children, }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="p-5">
+        <div>
           {children}
         </div>
       </body>
