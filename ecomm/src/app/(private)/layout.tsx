@@ -1,9 +1,13 @@
+import Header from "@/components/shared/header";
 import React from "react";
 
 const PrivateLayout = ({ children, }: { children: React.ReactNode }) => {
   return (
     <>
-      <div>Private Layout</div>
+      <Header />
+      <div className="p-5">
+        {children}
+      </div>
     </>
   )
 };
