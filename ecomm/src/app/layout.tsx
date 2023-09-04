@@ -1,3 +1,4 @@
+import Footer from '@/components/shared/footer'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -16,6 +17,7 @@ const RootLayout = ({ children, }: { children: React.ReactNode }) => {
         <div>
           {children}
         </div>
+        <Footer />
       </body>
     </html>
   )
