@@ -8,6 +8,8 @@ const Header = () => {
             <div className='flex gap-5'>
                 <Link href='/orders'>Orders</Link>
                 <Link href='/profile'>Profile</Link>
+                <Link href='/client'>Client</Link>
+                <Link href='/server'>Server</Link>
             </div>
         </div>
     );
