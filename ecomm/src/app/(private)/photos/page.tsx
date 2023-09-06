@@ -2,19 +2,21 @@
 
 import React from "react";
 
-const ClientPage = () => {
+import PhotoList from "@/components/PhotoList";
 
-  const [users, setUsers] = React.useState([]);
+const PhotosPage = () => {
+
+  const [photos, setPhotos] = React.useState([]);
 
   React.useEffect(() => {
-    getUsers();
+    getphotos();
   }, []);
 
-  const getUsers = async () => {
+  const getphotos = async () => {
     try {
-      await fetch('https://jsonplaceholder.typicode.com/users')
+      await fetch('https://jsonplaceholder.typicode.com/photos')
         .then(response => response.json())
-        .then(data => setUsers(data))
+        .then(data => setPhotos(data))
     } catch (error: any) {
       console.error(error);
     }
@@ -23,15 +25,11 @@ const ClientPage = () => {
   return (
     <>
       <div>
-        <h1 className="text-4xl font-bold text-center text-cyan-900">Client Component</h1>
+        <h1 className="text-4xl font-bold text-center text-cyan-900">Photo Gallery</h1>
         <hr></hr>
 
         <div>
-          <ul>
-            {users.map((user: any) => (
-              <li key={user.id}>{user.name}</li>
-            ))}
-          </ul>
+          <PhotoList photos={photos.slice(0,6)} />
         </div>
 
         <hr></hr>
@@ -41,12 +39,12 @@ const ClientPage = () => {
         </div>
 
         <hr></hr>
-        <p>
+        {/* <p>
           {JSON.stringify(users)}
-        </p>
+        </p> */}
       </div>
     </>
   )
 };
 
-export default ClientPage;
+export default PhotosPage;
