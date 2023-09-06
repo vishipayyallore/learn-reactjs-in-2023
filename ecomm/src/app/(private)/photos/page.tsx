@@ -3,6 +3,7 @@
 import React from "react";
 
 import PhotoList from "@/components/PhotoList";
+import './PhotoCard.css';
 
 const PhotosPage = () => {
 
@@ -29,19 +30,9 @@ const PhotosPage = () => {
         <hr></hr>
 
         <div>
-          <PhotoList photos={photos.slice(0,6)} />
+          <PhotoList photos={photos.slice(0, 6)} />
         </div>
 
-        <hr></hr>
-
-        <div className="flex justify-center p-4">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => { alert('Button Clicked!') }}>Click Me</button>
-        </div>
-
-        <hr></hr>
-        {/* <p>
-          {JSON.stringify(users)}
-        </p> */}
       </div>
     </>
   )
