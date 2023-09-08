@@ -8,7 +8,7 @@ const UserItem = ({ user }: any) => {
     const router = useRouter();
 
     return (
-        <li key={user.id} className="cursor-pointer" onClick={() => { router.push(`/client/${user.id}`) }}>{user.name}</li>
+        <li key={user.id} className="cursor-pointer" onClick={() => { router.push(`/server/${user.id}`) }}>{user.name}</li>
     )
 };
 
