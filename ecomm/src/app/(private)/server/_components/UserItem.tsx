@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-const UserInfoFromServer = ({ user }: any) => {
+const UserItem = ({ user }: any) => {
 
     const router = useRouter();
 
@@ -12,4 +12,4 @@ const UserInfoFromServer = ({ user }: any) => {
     )
 };
 
-export default UserInfoFromServer;
+export default UserItem;

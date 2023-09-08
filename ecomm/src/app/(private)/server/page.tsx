@@ -1,5 +1,5 @@
 import React from "react";
-import UserInfoFromServer from "./_components/UserItem";
+import UserItem from "./_components/UserItem";
 
 export const getUsers = async () => {
   try {
@@ -24,7 +24,7 @@ const ServerPage = async () => {
         <div>
           <ul>
             {users.map((user: any) => (
-              <UserInfoFromServer key={user.id} user={user}>{user.name}</UserInfoFromServer>
+              <UserItem key={user.id} user={user}>{user.name}</UserItem>
             ))}
           </ul>
         </div>

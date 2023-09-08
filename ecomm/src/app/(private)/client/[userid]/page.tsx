@@ -4,7 +4,7 @@ const UserInfoFromClient = () => {
     return (
         <>
             <div>
-                <h1>User Info In Client Page</h1>
+                <h1>User Info From Client Page</h1>
             </div>
         </>
     )
