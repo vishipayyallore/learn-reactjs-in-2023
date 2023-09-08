@@ -4,6 +4,8 @@ import React from "react";
 
 const ClientPage = () => {
 
+  console.log(`Token: ${localStorage.getItem('token')}`);
+
   const [users, setUsers] = React.useState([]);
 
   React.useEffect(() => {
