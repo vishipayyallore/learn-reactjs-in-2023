@@ -1,4 +1,5 @@
 import React from "react";
+import UserItem from "./_components/UserItem";
 
 export const getUsers = async () => {
   try {
@@ -23,7 +24,7 @@ const ServerPage = async () => {
         <div>
           <ul>
             {users.map((user: any) => (
-              <li key={user.id}>{user.name}</li>
+              <UserItem key={user.id} user={user}>{user.name}</UserItem>
             ))}
           </ul>
         </div>

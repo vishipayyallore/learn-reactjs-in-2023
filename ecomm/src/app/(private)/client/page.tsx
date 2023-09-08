@@ -1,10 +1,14 @@
-'use client'
+'use client';
 
 import React from "react";
+import { useRouter } from "next/navigation";
 
 const ClientPage = () => {
 
+  console.log(`Token: ${localStorage.getItem('token')}`);
+
   const [users, setUsers] = React.useState([]);
+  const router = useRouter();
 
   React.useEffect(() => {
     getUsers();
@@ -26,10 +30,10 @@ const ClientPage = () => {
         <h1 className="text-4xl font-bold text-center text-cyan-900">Client Component</h1>
         <hr></hr>
 
-        <div>
+        <div className="p-4">
           <ul>
             {users.map((user: any) => (
-              <li key={user.id}>{user.name}</li>
+              <li className="cursor-pointer" key={user.id} onClick={() => { router.push(`/client/${user.id}`) }} >{user.name}</li>
             ))}
           </ul>
         </div>
