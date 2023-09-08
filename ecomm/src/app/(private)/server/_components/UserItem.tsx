@@ -1,6 +1,8 @@
+'use client';
+
 import React from "react";
 
-const UserInfoFromClient = () => {
+const UserInfoFromServer = () => {
     return (
         <>
             <div>
@@ -10,4 +12,4 @@ const UserInfoFromClient = () => {
     )
 };
 
-export default UserInfoFromClient;
+export default UserInfoFromServer;
