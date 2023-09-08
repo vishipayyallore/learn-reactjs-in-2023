@@ -1,14 +1,14 @@
 'use client';
 
 import React from "react";
+import { useRouter } from "next/navigation";
 
-const UserInfoFromServer = () => {
+const UserInfoFromServer = ({ user }: any) => {
+
+    const router = useRouter();
+
     return (
-        <>
-            <div>
-                <h1>User Info In Client Page</h1>
-            </div>
-        </>
+        <li key={user.id} className="cursor-pointer" onClick={() => { router.push(`/client/${user.id}`) }}>{user.name}</li>
     )
 };
 
