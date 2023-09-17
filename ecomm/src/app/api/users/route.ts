@@ -15,7 +15,7 @@ export async function GET(requext: NextRequest) {
 }
 
 // To be replaced with real data
-function getUsers() {
+const getUsers = () => {
     return [
         { id: 1, name: "John Doe" },
         { id: 2, name: "Jane Doe" },
