@@ -1,4 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import { v4 as uuidv4 } from 'uuid';
+
+// Function to generate a random GUID
+function generateRandomGuid(): string {
+    return uuidv4();
+}
 
 export async function GET(requext: NextRequest) {
     try {
@@ -30,7 +36,13 @@ export async function POST(requext: NextRequest) {
         const body = await requext.json();
         console.log("POST /api/users :: Request Received: ", body);
 
-        return NextResponse.json({ data: null, message: "User Created", error: null, processedAt: new Date().toUTCString() },
+        // Generate a random GUID
+        const id = generateRandomGuid();
+
+        // Add the 'id' field to the object
+        const newUser = { ...body, id };
+
+        return NextResponse.json({ data: newUser, message: "User Created", error: null, processedAt: new Date().toUTCString() },
             { status: 200 });
     } catch (error: any) {
         console.error(error);
