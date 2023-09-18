@@ -4,9 +4,12 @@ export async function GET(requext: NextRequest) {
     try {
         // console.log("GET /api/users :: Request Received: ", requext);
         // console.log("GET /api/users :: Request Received: ", requext.nextUrl.searchParams);
-        requext.nextUrl.searchParams.forEach((value, key) => {
-            console.log(`GET /api/users :: Request Received: ${key} = ${value}`);
-        });
+        // requext.nextUrl.searchParams.forEach((value, key) => {
+        //     console.log(`GET /api/users :: Request Received: ${key} = ${value}`);
+        // });
+
+        console.log("GET /api/users :: Request Received: ", requext.nextUrl.searchParams.get("sortBy"));
+        console.log("GET /api/users :: Request Received: ", requext.nextUrl.searchParams.get("age"));
 
         const users = getUsers();
 
