@@ -6,7 +6,7 @@ function generateRandomGuid(): string {
     return uuidv4();
 }
 
-export async function GET(requext: NextRequest) {
+export const GET = async (request: NextRequest) => {
     try {
         // console.log("GET /api/users :: Request Received: ", requext);
 
@@ -16,8 +16,8 @@ export async function GET(requext: NextRequest) {
         //     console.log(`GET /api/users :: Request Received: ${key} = ${value}`);
         // });
 
-        console.log("GET /api/users :: Request Received: ", requext.nextUrl.searchParams.get("sortBy"));
-        console.log("GET /api/users :: Request Received: ", requext.nextUrl.searchParams.get("age"));
+        console.log("GET /api/users :: Request Received: ", request.nextUrl.searchParams.get("sortBy"));
+        console.log("GET /api/users :: Request Received: ", request.nextUrl.searchParams.get("age"));
 
         const users = getUsers();
 
@@ -31,9 +31,9 @@ export async function GET(requext: NextRequest) {
     }
 }
 
-export async function POST(requext: NextRequest) {
+export const POST = async (request: NextRequest) => {
     try {
-        const body = await requext.json();
+        const body = await request.json();
         console.log("POST /api/users :: Request Received: ", body);
 
         // Generate a random GUID
