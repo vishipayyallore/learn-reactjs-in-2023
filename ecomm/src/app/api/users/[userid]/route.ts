@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export async function PUT(requext: NextRequest) {
+export const PUT = async (request: NextRequest, { params }: any) => {
     try {
-        const existingUser = await requext.json();
-        console.log("PUT /api/users :: Request Received: ", existingUser);
+        const existingUser = await request.json();
 
-        return NextResponse.json({ data: existingUser, message: "User Updated", error: null, processedAt: new Date().toUTCString() },
+        console.log("PUT /api/users :: Request Received: ", existingUser, " :: User Id: ", params.userid, " :: User Id: ", existingUser.id);
+
+        return NextResponse.json({ data: existingUser, message: `User ${params.userid} Updated`, error: null, processedAt: new Date().toUTCString() },
             { status: 200 });
     } catch (error: any) {
         console.error(error);
