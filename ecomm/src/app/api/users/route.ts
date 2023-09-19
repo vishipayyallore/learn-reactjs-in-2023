@@ -1,5 +1,8 @@
+import { connectToMongoDb } from "@/config/dbConfig";
 import { NextRequest, NextResponse } from "next/server";
 import { v4 as uuidv4 } from 'uuid';
+
+connectToMongoDb();
 
 // Function to generate a random GUID
 function generateRandomGuid(): string {
