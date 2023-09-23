@@ -20,11 +20,23 @@ export const GET = async (request: NextRequest) => {
         //     console.log(`GET /api/users :: Request Received: ${key} = ${value}`);
         // });
 
+        // const users = getUsers();
+
         console.log("GET /api/users :: Request Received: ", request.nextUrl.searchParams.get("sortBy"));
         console.log("GET /api/users :: Request Received: ", request.nextUrl.searchParams.get("age"));
 
-        // const users = getUsers();
-        const users = await UserModel.find({});
+        const searchParams = request.nextUrl.searchParams;
+        const filters: any = {};
+
+        if (searchParams.has("name")) {
+            filters.name = searchParams.get("name");
+        }
+
+        if (searchParams.has("age")) {
+            filters.age = searchParams.get("age");
+        }
+
+        const users = await UserModel.find(filters);
 
         return NextResponse.json({ data: users, message: "User Lists", error: null, processedAt: new Date().toUTCString() },
             { status: 200 });
