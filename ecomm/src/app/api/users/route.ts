@@ -23,7 +23,8 @@ export const GET = async (request: NextRequest) => {
         console.log("GET /api/users :: Request Received: ", request.nextUrl.searchParams.get("sortBy"));
         console.log("GET /api/users :: Request Received: ", request.nextUrl.searchParams.get("age"));
 
-        const users = getUsers();
+        // const users = getUsers();
+        const users = await UserModel.find({});
 
         return NextResponse.json({ data: users, message: "User Lists", error: null, processedAt: new Date().toUTCString() },
             { status: 200 });
