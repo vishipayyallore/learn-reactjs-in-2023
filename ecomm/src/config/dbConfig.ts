@@ -8,10 +8,8 @@ export const connectToMongoDb = async () => {
             throw new Error("MongoDB URL is not defined");
         }
 
-        await mongoose.connect(mongoDbUrl, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
+        await mongoose.connect(mongoDbUrl, {});
+
         console.log(`MongoDB connected`);
     } catch (error) {
         console.log(`MongoDB connection failed: ${error}`);

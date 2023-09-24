@@ -1,4 +1,5 @@
 import { connectToMongoDb } from "@/config/dbConfig";
+import { UserModel } from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -19,10 +20,23 @@ export const GET = async (request: NextRequest) => {
         //     console.log(`GET /api/users :: Request Received: ${key} = ${value}`);
         // });
 
+        // const users = getUsers();
+
         console.log("GET /api/users :: Request Received: ", request.nextUrl.searchParams.get("sortBy"));
         console.log("GET /api/users :: Request Received: ", request.nextUrl.searchParams.get("age"));
 
-        const users = getUsers();
+        const searchParams = request.nextUrl.searchParams;
+        const filters: any = {};
+
+        if (searchParams.has("name")) {
+            filters.name = searchParams.get("name");
+        }
+
+        if (searchParams.has("age")) {
+            filters.age = searchParams.get("age");
+        }
+
+        const users = await UserModel.find(filters);
 
         return NextResponse.json({ data: users, message: "User Lists", error: null, processedAt: new Date().toUTCString() },
             { status: 200 });
@@ -39,13 +53,11 @@ export const POST = async (request: NextRequest) => {
         const body = await request.json();
         console.log("POST /api/users :: Request Received: ", body);
 
-        // Generate a random GUID
-        const id = generateRandomGuid();
+        const newUser = new UserModel(body);
 
-        // Add the 'id' field to the object
-        const newUser = { ...body, id };
+        const savedUser = await newUser.save();
 
-        return NextResponse.json({ data: newUser, message: "User Created", error: null, processedAt: new Date().toUTCString() },
+        return NextResponse.json({ data: savedUser, message: "User Created", error: null, processedAt: new Date().toUTCString() },
             { status: 200 });
     } catch (error: any) {
         console.error(error);
@@ -62,3 +74,10 @@ const getUsers = () => {
         { id: 2, name: "Jane Doe" },
     ];
 }
+
+
+// // Generate a random GUID
+// const id = generateRandomGuid();
+
+// // Add the 'id' field to the object
+// const newUser = { ...body, id };
