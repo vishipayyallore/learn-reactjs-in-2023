@@ -1,11 +1,5 @@
-.root-div-styles {
-    border: solid;
-    border-color: rgb(1, 244, 74);
-    margin-bottom: 20px;
-    padding: 5px;
-}
-
-.list-div-styles {
+.list-styles {
     border: solid;
     border-color: blueviolet;
+    color: royalblue;
 }
