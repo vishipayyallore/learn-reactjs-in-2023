@@ -4,12 +4,15 @@ import UserItem from "./_components/UserItem";
 export const getUsers = async () => {
   try {
     // NOTE: This code is executed on the server side.
-    const response = await fetch('http://localhost:3001/api/users');
+    const response = await fetch('http://localhost:3001/api/users', {
+      cache: 'no-cache',
+    });
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
     const { data } = await response.json();
-    console.log(data);
+    // console.log(data);
+
     return data;
   } catch (error) {
     console.error(error);
