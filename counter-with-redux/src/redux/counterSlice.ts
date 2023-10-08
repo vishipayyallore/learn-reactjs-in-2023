@@ -15,3 +15,5 @@ export const counterSlice = createSlice({
         },
     },
 });
+
+export const { SetCountValue } = counterSlice.actions;
