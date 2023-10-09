@@ -11,7 +11,7 @@ export const counterSlice = createSlice({
     },
     reducers: {
         SetCountValue(state: CounterState, action: PayloadAction<number>) {
-            state.count += action.payload;
+            state.count = action.payload;
         },
     },
 });
