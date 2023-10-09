@@ -9,12 +9,10 @@ export default function Home() {
 
   const dispatch = useDispatch();
 
-  // Increment code
   const increment = () => {
     dispatch(SetCountValue(count + 1));
   };
 
-  // Decrement code
   const decrement = () => {
     dispatch(SetCountValue(count - 1));
   };
