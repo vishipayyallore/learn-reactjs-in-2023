@@ -8,7 +8,6 @@ const Register = () => {
         username: '',
         email: '',
         password: '',
-        confirmPassword: '',
     });
 
     return (
@@ -36,6 +35,10 @@ const Register = () => {
                     <input type='password' id='password' name='password' value={user.password}
                         onChange={(e) => { setUser({ ...user, password: e.target.value }); }} />
                 </div>
+
+                <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+                    Register
+                </button>
 
             </div>
         </div>
