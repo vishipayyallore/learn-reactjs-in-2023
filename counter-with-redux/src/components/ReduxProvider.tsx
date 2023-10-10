@@ -7,7 +7,7 @@ import store from '@/redux/store';
 export default function ReduxProvider({ children, }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-            <body >
+            <body suppressHydrationWarning={true}>
                 <Provider store={store}>
                     {children}
                 </Provider>
