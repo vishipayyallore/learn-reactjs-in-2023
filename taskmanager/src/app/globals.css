@@ -8,3 +8,14 @@
     font-family: 'Montserrat', sans-serif;
     font-family: 'Poppins', sans-serif;
 }
+
+input {
+    height: 45px;
+    border: 1px solid #8c9295;
+    padding: 0 10px;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #053f62;
+}
