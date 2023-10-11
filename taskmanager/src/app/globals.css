@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+input {
+    height: 45px;
+    border: 1px solid #8c9295;
+    padding: 0 10px;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #053f62;
+}
+
+button {
+    height: 45px;
+    border: none;
+    padding: 0 10px;
+    cursor: pointer;
+}
