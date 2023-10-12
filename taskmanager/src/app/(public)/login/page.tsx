@@ -5,13 +5,12 @@ import React, { useState } from 'react';
 const Login = () => {
 
     const [user, setUser] = useState({
-        username: '',
         email: '',
         password: '',
     });
 
     const isLoginButtonDisabled = () => {
-        return !user.username || !user.email || !user.password;
+        return !user.email || !user.password;
     };
 
     const onLogin = async () => {
@@ -42,12 +41,6 @@ const Login = () => {
                     Login
                 </h1>
                 <hr></hr>
-
-                <div className='flex flex-col'>
-                    <label htmlFor='username' className='text-sm'>Username</label>
-                    <input type='text' id='username' name='username' value={user.username}
-                        onChange={(e) => { setUser({ ...user, username: e.target.value }); }} />
-                </div>
 
                 <div className='flex flex-col'>
                     <label htmlFor='email' className='text-sm'>Email</label>
