@@ -30,6 +30,11 @@ button {
 .btn-disabled {
     background-color: #8c9295;
     color: #fff;
-    pointer-events: none;
     cursor: not-allowed;
+    pointer-events: none;
+}
+
+a {
+    text-decoration: underline;
+    color: #1707f5;
 }
