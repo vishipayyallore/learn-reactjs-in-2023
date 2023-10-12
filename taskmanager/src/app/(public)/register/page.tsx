@@ -39,7 +39,7 @@ const Register = () => {
         <div className='bg-primary flex flex-col justify-center items-center h-screen'>
             <div className="flex flex-col gap-5 bg-white p-5 w-[500px] shadow-sm rounded-sm text-blue-800">
                 <h1 className='text-2xl font-bold p-5 uppercase'>
-                    Register to Task Manager
+                    Register
                 </h1>
                 <hr></hr>
 
