@@ -26,3 +26,10 @@ button {
     padding: 0 10px;
     cursor: pointer;
 }
+
+.btn-disabled {
+    background-color: #8c9295;
+    color: #fff;
+    pointer-events: none;
+    cursor: not-allowed;
+}
