@@ -36,7 +36,7 @@ const Register = () => {
                         onChange={(e) => { setUser({ ...user, password: e.target.value }); }} />
                 </div>
 
-                <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+                <button className='bg-blue-600 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded'>
                     Register
                 </button>
 
