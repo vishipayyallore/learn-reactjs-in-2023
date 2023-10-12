@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 const Login = () => {
@@ -15,9 +16,9 @@ const Login = () => {
 
     const onLogin = async () => {
 
-        console.log('Registering user...', user);
+        console.log('Logining user...', user);
 
-        // const response = await fetch('http://localhost:3000/api/register', {
+        // const response = await fetch('http://localhost:3000/api/login', {
         //     method: 'POST',
         //     headers: {
         //         'Content-Type': 'application/json',
@@ -28,7 +29,7 @@ const Login = () => {
         // const data = await response.json();
 
         // if (data.status === 'ok') {
-        //     console.log('User registered successfully.');
+        //     console.log('User Logined successfully.');
         // } else {
         //     console.log('User registration failed.');
         // }
@@ -55,8 +56,12 @@ const Login = () => {
                 </div>
 
                 <button onClick={onLogin} className={`bg-blue-600 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded ${isLoginButtonDisabled() ? 'btn-disabled' : ''}`}>
-                    Register
+                    Login
                 </button>
+
+                <Link href='/register'>
+                    Do not have an account? Register
+                </Link>
 
             </div>
         </div>

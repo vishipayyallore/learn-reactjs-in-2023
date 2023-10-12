@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 const Register = () => {
@@ -64,6 +65,10 @@ const Register = () => {
                 <button onClick={onRegister} className={`bg-blue-600 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded ${isRegisterButtonDisabled() ? 'btn-disabled' : ''}`}>
                     Register
                 </button>
+
+                <Link href='/login'>
+                    Already have an account? Login
+                </Link>
 
             </div>
         </div>
