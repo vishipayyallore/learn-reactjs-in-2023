@@ -26,3 +26,15 @@ button {
     padding: 0 10px;
     cursor: pointer;
 }
+
+.btn-disabled {
+    background-color: #8c9295;
+    color: #fff;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+a {
+    text-decoration: underline;
+    color: #1707f5;
+}

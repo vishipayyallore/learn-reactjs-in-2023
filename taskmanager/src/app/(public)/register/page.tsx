@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 const Register = () => {
@@ -10,6 +11,31 @@ const Register = () => {
         password: '',
     });
 
+    const isRegisterButtonDisabled = () => {
+        return !user.username || !user.email || !user.password;
+    };
+
+    const onRegister = async () => {
+
+        console.log('Registering user...', user);
+
+        // const response = await fetch('http://localhost:3000/api/register', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(user),
+        // });
+
+        // const data = await response.json();
+
+        // if (data.status === 'ok') {
+        //     console.log('User registered successfully.');
+        // } else {
+        //     console.log('User registration failed.');
+        // }
+    };
+
     return (
         <div className='bg-primary flex flex-col justify-center items-center h-screen'>
             <div className="flex flex-col gap-5 bg-white p-5 w-[500px] shadow-sm rounded-sm text-blue-800">
@@ -19,26 +45,30 @@ const Register = () => {
                 <hr></hr>
 
                 <div className='flex flex-col'>
-                    <label htmlFor='username'>Username</label>
+                    <label htmlFor='username' className='text-sm'>Username</label>
                     <input type='text' id='username' name='username' value={user.username}
                         onChange={(e) => { setUser({ ...user, username: e.target.value }); }} />
                 </div>
 
                 <div className='flex flex-col'>
-                    <label htmlFor='email'>Email</label>
+                    <label htmlFor='email' className='text-sm'>Email</label>
                     <input type='email' id='email' name='email' value={user.email}
                         onChange={(e) => { setUser({ ...user, email: e.target.value }); }} />
                 </div>
 
                 <div className='flex flex-col'>
-                    <label htmlFor='password'>Password</label>
+                    <label htmlFor='password' className='text-sm'>Password</label>
                     <input type='password' id='password' name='password' value={user.password}
                         onChange={(e) => { setUser({ ...user, password: e.target.value }); }} />
                 </div>
 
-                <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
+                <button onClick={onRegister} className={`bg-blue-600 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded ${isRegisterButtonDisabled() ? 'btn-disabled' : ''}`}>
                     Register
                 </button>
+
+                <Link href='/login'>
+                    Already have an account? Login
+                </Link>
 
             </div>
         </div>
