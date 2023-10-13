@@ -7,6 +7,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ```bash
 npx create-next-app@latest taskmanager
 
+npm i mongoose
+
+npm i bcryptjs jsonwebtoken
+
 ```
 
 ## Getting Started
