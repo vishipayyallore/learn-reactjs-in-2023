@@ -10,7 +10,7 @@ npx create-next-app@latest taskmanager
 npm i mongoose
 
 npm i bcryptjs jsonwebtoken
-
+npm i --save-dev @types/bcryptjs @types/jsonwebtoken
 ```
 
 ## Getting Started
