@@ -15,7 +15,7 @@ export const POST = async (request: NextRequest) => {
         const userExists = await User.exists({ email: requestBody.email });
 
         if (userExists) {
-            return NextResponse.json({ error: "User already exists" }, { status: 400 });
+            return NextResponse.json({ message: "User already exists" }, { status: 400 });
         }
 
         // Hash the password
@@ -26,6 +26,6 @@ export const POST = async (request: NextRequest) => {
 
         return NextResponse.json({ message: "User registered successfully" }, { status: 200 });
     } catch (error: any) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        return NextResponse.json({ message: error.message }, { status: 500 });
     }
 }

@@ -26,20 +26,17 @@ const Register = () => {
 
             setLoading(true);
 
-            const response = await axios.post(`${process.env.API_URL}/register`, user);
+            const response = await axios.post('api/users/register', user);
 
-            console.log('User registration response:', response.data);
+            console.log('User registration response:', response.data, response.status);
 
             if (response.status === 200) {
                 console.log('User registered successfully.');
                 toast.success('User registered successfully.');
-            } else {
-                console.log('User registration failed.');
-                toast.error('User registration failed.');
             }
         } catch (error: any) {
-            console.log('User registration failed.', error.message);
-            toast.error('User registration failed.');
+            console.log(error.response.data.message || error.message);
+            toast.error(error.response.data.message || error.message);
         } finally {
             setLoading(false);
         }
