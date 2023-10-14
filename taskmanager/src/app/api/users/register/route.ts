@@ -7,7 +7,7 @@ import { connectToMongoDb } from "@/config/dbConfig";
 // Connect to the MongoDB before making any database operations
 connectToMongoDb();
 
-export async function POST(request: NextRequest) {
+export const POST = async (request: NextRequest) => {
     try {
 
         // Verify if User exists
@@ -19,11 +19,10 @@ export async function POST(request: NextRequest) {
         }
 
         // Hash the password
-        const hashedPassword = await bycrypt.hash(requestBody.password, await bycrypt.genSalt(10));
-        requestBody.password = hashedPassword;
+        requestBody.password = await bycrypt.hash(requestBody.password, await bycrypt.genSalt(10));
 
         // Save the user to the database
-        User.create(requestBody);
+        await User.create(requestBody);
 
         return NextResponse.json({ message: "User registered successfully" }, { status: 200 });
     } catch (error: any) {
