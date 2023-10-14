@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const Register = () => {
 
@@ -31,11 +32,14 @@ const Register = () => {
 
             if (response.status === 200) {
                 console.log('User registered successfully.');
+                toast.success('User registered successfully.');
             } else {
                 console.log('User registration failed.');
+                toast.error('User registration failed.');
             }
         } catch (error: any) {
-
+            console.log('User registration failed.', error.message);
+            toast.error('User registration failed.');
         } finally {
             setLoading(false);
         }
@@ -72,7 +76,7 @@ const Register = () => {
                 </div>
 
                 <button onClick={onRegister} className={`bg-blue-600 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded ${isRegisterButtonDisabled() ? 'btn-disabled' : ''}`}>
-                    Register
+                    {loading ? "Registering ...." : "Register"}
                 </button>
 
                 <Link href='/login'>
