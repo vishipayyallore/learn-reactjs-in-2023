@@ -4,8 +4,11 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 const Register = () => {
+
+    const router = useRouter();
 
     const [loading, setLoading] = useState(false);
 
@@ -20,7 +23,6 @@ const Register = () => {
     };
 
     const onRegister = async () => {
-
         try {
             console.log('Registering user...', user);
 
@@ -33,6 +35,8 @@ const Register = () => {
             if (response.status === 200) {
                 console.log('User registered successfully.');
                 toast.success('User registered successfully.');
+
+                router.push('/login');
             }
         } catch (error: any) {
             console.log(error.response.data.message || error.message);
@@ -40,10 +44,6 @@ const Register = () => {
         } finally {
             setLoading(false);
         }
-
-
-
-
     };
 
     return (
