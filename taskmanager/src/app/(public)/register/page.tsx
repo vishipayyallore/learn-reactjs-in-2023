@@ -2,8 +2,11 @@
 
 import Link from 'next/link';
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const Register = () => {
+
+    const [loading, setLoading] = useState(false);
 
     const [user, setUser] = useState({
         username: '',
@@ -17,23 +20,29 @@ const Register = () => {
 
     const onRegister = async () => {
 
-        console.log('Registering user...', user);
+        try {
+            console.log('Registering user...', user);
 
-        // const response = await fetch('http://localhost:3000/api/register', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(user),
-        // });
+            setLoading(true);
 
-        // const data = await response.json();
+            const response = await axios.post(`${process.env.API_URL}/register`, user);
 
-        // if (data.status === 'ok') {
-        //     console.log('User registered successfully.');
-        // } else {
-        //     console.log('User registration failed.');
-        // }
+            console.log('User registration response:', response.data);
+
+            if (response.status === 200) {
+                console.log('User registered successfully.');
+            } else {
+                console.log('User registration failed.');
+            }
+        } catch (error: any) {
+
+        } finally {
+            setLoading(false);
+        }
+
+
+
+
     };
 
     return (
