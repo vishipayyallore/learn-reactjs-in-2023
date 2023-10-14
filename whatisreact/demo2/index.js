@@ -9,7 +9,7 @@ window.onload = () => {
 
   // this refactor is not in the clip, but would be the obvious next step
   const childrenElements = ints.map((id, index) => {
-    return React.createElement("li", { key: ints[index] }, ints[index])
+    return React.createElement("li", { key: id }, ints[index])
   });
 
   root.render(childrenElements);
