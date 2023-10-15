@@ -2,8 +2,15 @@
 
 import Link from 'next/link';
 import React, { useState } from 'react';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 const Register = () => {
+
+    const router = useRouter();
+
+    const [loading, setLoading] = useState(false);
 
     const [user, setUser] = useState({
         username: '',
@@ -16,24 +23,27 @@ const Register = () => {
     };
 
     const onRegister = async () => {
+        try {
+            console.log('Registering user...', user);
 
-        console.log('Registering user...', user);
+            setLoading(true);
 
-        // const response = await fetch('http://localhost:3000/api/register', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(user),
-        // });
+            const response = await axios.post('api/users/register', user);
 
-        // const data = await response.json();
+            console.log('User registration response:', response.data, response.status);
 
-        // if (data.status === 'ok') {
-        //     console.log('User registered successfully.');
-        // } else {
-        //     console.log('User registration failed.');
-        // }
+            if (response.status === 200) {
+                console.log('User registered successfully.');
+                toast.success('User registered successfully.');
+
+                router.push('/login');
+            }
+        } catch (error: any) {
+            console.log(error.response.data.message || error.message);
+            toast.error(error.response.data.message || error.message);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -63,7 +73,7 @@ const Register = () => {
                 </div>
 
                 <button onClick={onRegister} className={`bg-blue-600 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded ${isRegisterButtonDisabled() ? 'btn-disabled' : ''}`}>
-                    Register
+                    {loading ? "Registering ...." : "Register"}
                 </button>
 
                 <Link href='/login'>
