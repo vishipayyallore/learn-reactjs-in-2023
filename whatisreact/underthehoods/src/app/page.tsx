@@ -11,14 +11,14 @@ const Home = () => {
   // React State
   const [items, setItems] = useState<number[]>(numbers);
 
-  function ListItems({ items, addValueFunc }: { items: number[], addValueFunc: (incrementVaule: number) => void }) {
+  function ListItems({ items, addNewItemFunc }: { items: number[], addNewItemFunc: (incrementVaule: number) => void }) {
 
-    const incrementVaule = 2;
+    const incrementVaule = 1;
 
     return (
       // <!-- React Fragment -->
       <>
-        <button onClick={() => addValueFunc(incrementVaule)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add New Item</button>
+        <button onClick={() => addNewItemFunc(incrementVaule)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add New Item</button>
         {
           items.map((id, index) => {
             return <li key={index} className="text-2xl">Item {id}</li>
@@ -40,7 +40,7 @@ const Home = () => {
         <PageTitle title={pageTitle}></PageTitle>
 
         <ul className="flex flex-col items-center text-blue-800 justify-center space-y-4">
-          <ListItems items={items} addValueFunc={addNewItem} />
+          <ListItems items={items} addNewItemFunc={addNewItem} />
         </ul>
       </main>
     </div>
