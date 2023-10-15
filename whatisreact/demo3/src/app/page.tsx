@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function Home() {
+const Home = () => {
 
   const intArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -40,4 +40,6 @@ export default function Home() {
       </ul>
     </main>
   )
-}
+};
+
+export default Home;
