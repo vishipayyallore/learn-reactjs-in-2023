@@ -21,14 +21,17 @@ export const POST = async (request: NextRequest) => {
 
         const passwordMatches = await bycrypt.compare(requestBody.password, userExists.password);
 
-        if(!passwordMatches) {
+        if (!passwordMatches) {
             throw new Error("Invalid credentials");
         }
 
         // Create a JWT token
         const jwtToken = jwt.sign({ userId: userExists._id }, process.env.JWT_SECRET!, { expiresIn: "7d" });
 
-        return NextResponse.json({ message: "User registered successfully" }, { status: 200 });
+        const loginResponse = NextResponse.json({ message: "User logged in successfully" }, { status: 200 });
+        loginResponse.cookies.set("token", jwtToken, { httpOnly: true, path: "/", maxAge: 604800 }); // 7 days
+
+        return loginResponse;
     } catch (error: any) {
         return NextResponse.json({ message: error.message }, { status: 500 });
     }
