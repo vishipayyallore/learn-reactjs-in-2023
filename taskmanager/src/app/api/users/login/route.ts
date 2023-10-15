@@ -13,14 +13,12 @@ export const POST = async (request: NextRequest) => {
 
         // Verify if User exists
         const requestBody = await request.json();
-        const userExists = await User.exists({ email: requestBody.email });
-
+        const userExists = await User.findOne({ email: requestBody.email });
         if (!userExists) {
             throw new Error("User does not exist");
         }
 
         const passwordMatches = await bycrypt.compare(requestBody.password, userExists.password);
-
         if (!passwordMatches) {
             throw new Error("Invalid credentials");
         }
