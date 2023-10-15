@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import bycrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 import User from "@/models/userModel";
 import { connectToMongoDb } from "@/config/dbConfig";
@@ -14,15 +15,18 @@ export const POST = async (request: NextRequest) => {
         const requestBody = await request.json();
         const userExists = await User.exists({ email: requestBody.email });
 
-        if (userExists) {
-            return NextResponse.json({ message: "User already exists" }, { status: 400 });
+        if (!userExists) {
+            throw new Error("User does not exist");
         }
 
-        // Hash the password
-        requestBody.password = await bycrypt.hash(requestBody.password, await bycrypt.genSalt(10));
+        const passwordMatches = await bycrypt.compare(requestBody.password, userExists.password);
 
-        // Save the user to the database
-        await User.create(requestBody);
+        if(!passwordMatches) {
+            throw new Error("Invalid credentials");
+        }
+
+        // Create a JWT token
+        const jwtToken = jwt.sign({ userId: userExists._id }, process.env.JWT_SECRET!, { expiresIn: "7d" });
 
         return NextResponse.json({ message: "User registered successfully" }, { status: 200 });
     } catch (error: any) {
