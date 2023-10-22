@@ -26,7 +26,7 @@ const middleware = async (request: NextRequest) => {
 }
 
 export const config = {
-    matcher: ["/login", "/register", "/"]
+    matcher: ["/login", "/register", "/", "/clienthome"]
 }
 
 export default middleware;
