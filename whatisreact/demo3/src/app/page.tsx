@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const Home = () => {
 
-  const intArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const intArray = [1, 2];
 
   // React State
   const [ints, setInts] = useState<number[]>(intArray);
