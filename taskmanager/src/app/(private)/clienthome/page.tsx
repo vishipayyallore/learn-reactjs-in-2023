@@ -9,7 +9,7 @@ const ClientHome = () => {
 
     const fetchUser = async () => {
         try {
-            const { data } = await axios.get('/api/user/currentuser');
+            const { data } = await axios.get('/api/users/currentuser');
             setUser(data.data);
         } catch (error: any) {
             console.log(error.message);
