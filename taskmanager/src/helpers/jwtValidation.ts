@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 
-const validateJwtAndGetUserId = (request: NextRequest): string => {
+const validateJwtAndGetUserId = async (request: NextRequest) => {
     try {
         const token = request.cookies.get("token")?.value;
         if (!token) {
