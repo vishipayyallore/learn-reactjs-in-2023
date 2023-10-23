@@ -9,7 +9,7 @@ import { setCurrentUser } from '@/redux/usersSlice';
 import toast from 'react-hot-toast';
 import Spinner from './Spinner';
 import { setLoading } from '@/redux/loadersSlice';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
 
