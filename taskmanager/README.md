@@ -11,6 +11,7 @@ npm i mongoose
 
 npm i bcryptjs jsonwebtoken
 npm i --save-dev @types/bcryptjs @types/jsonwebtoken
+npm i redux react-redux @reduxjs/toolkit
 ```
 
 ## Getting Started
