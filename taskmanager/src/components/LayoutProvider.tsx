@@ -14,7 +14,7 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
             <body suppressHydrationWarning={true}>
                 <Toaster position='top-center' reverseOrder={false} />
 
-                <div className="bg-primary text-white p-3 flex items-center justify-between">
+                <div className="bg-primary text-white p-3 flex items-center justify-between rounded-b">
                     <h1 className='text-xl font-semibold'>Task Manager</h1>
 
                     <div className="flex gap-4 items-center">
@@ -25,13 +25,17 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
 
                 {
                     isPublicRoutes ?
-                        (<div>
-                            {children}
-                        </div>)
+                        (
+                            <div>
+                                {children}
+                            </div>
+                        )
                         :
-                        (<div className='flex px-10 py-5'>
-                            {children}
-                        </div>)
+                        (
+                            <div className='h-[80vh] flex p-4 mx-10 border border-primary rounded-sm mt-4'>
+                                {children}
+                            </div>
+                        )
                 }
             </body>
         </html>
