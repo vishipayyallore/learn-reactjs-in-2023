@@ -60,7 +60,7 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
         if (!isPublicRoutes) {
             fetchUser();
         }
-    }, []);
+    }, [pathname]);
 
     return (
         <html lang="en">
