@@ -1,6 +1,7 @@
 import LayoutProvider from '@/components/LayoutProvider'
 import type { Metadata } from 'next'
 import './globals.css'
+import ReduxProvider from '@/components/ReduxProvider'
 
 export const metadata: Metadata = {
   title: 'Task Manager',
@@ -9,9 +10,11 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children, }: { children: React.ReactNode }) => {
   return (
-    <LayoutProvider>
-      {children}
-    </LayoutProvider>
+    <ReduxProvider>
+      <LayoutProvider>
+        {children}
+      </LayoutProvider>
+    </ReduxProvider>
   )
 };
 
