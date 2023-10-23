@@ -7,10 +7,12 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentUser } from '@/redux/usersSlice';
 import toast from 'react-hot-toast';
+import Spinner from './Spinner';
 
 const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
 
     const { currentUser } = useSelector((state: any) => state.users);
+    const { isLoading } = useSelector((state: any) => state.loaders);
 
     const pathname = usePathname();
     const isPublicRoutes = pathname === '/login' || pathname === '/register';
@@ -20,7 +22,7 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
         try {
             const { data } = await axios.get('/api/users/currentuser');
             // console.log('fetchUser : ', data.data);
-            
+
             dispatch(setCurrentUser(data.data));
         } catch (error: any) {
             console.log(error.message);
@@ -37,6 +39,12 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
     return (
         <html lang="en">
             <body suppressHydrationWarning={true}>
+                {isLoading &&
+                    (
+                        <Spinner />
+                    )
+                }
+
                 <Toaster position='top-center' reverseOrder={false} />
 
                 <div className="bg-primary text-white p-3 flex items-center justify-between rounded-b">
