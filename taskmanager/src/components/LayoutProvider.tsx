@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentUser } from '@/redux/usersSlice';
 import toast from 'react-hot-toast';
 import Spinner from './Spinner';
+import { setLoading } from '@/redux/loadersSlice';
 
 const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
 
@@ -20,6 +21,8 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
 
     const fetchUser = async () => {
         try {
+            dispatch(setLoading(true));
+
             const { data } = await axios.get('/api/users/currentuser');
             // console.log('fetchUser : ', data.data);
 
@@ -27,6 +30,8 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
         } catch (error: any) {
             console.log(error.message);
             toast.error(error.message);
+        } finally {
+            dispatch(setLoading(false));
         }
     };
 
