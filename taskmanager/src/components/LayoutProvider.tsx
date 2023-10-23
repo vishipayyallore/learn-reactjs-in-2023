@@ -52,14 +52,19 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
 
                 <Toaster position='top-center' reverseOrder={false} />
 
-                <div className="bg-primary text-white p-3 flex items-center justify-between rounded-b">
-                    <h1 className='text-xl font-semibold'>Task Manager</h1>
+                {!isPublicRoutes &&
+                    (
+                        <div className="bg-primary text-white p-3 flex items-center justify-between rounded-b">
+                            <h1 className='text-xl font-semibold'>Task Manager</h1>
 
-                    <div className="flex gap-4 items-center">
-                        <h1 className='underline cursor-pointer'>{currentUser?.username}</h1>
-                        <i className="ri-logout-box-r-line p-2 cursor-pointer text-white"></i>
-                    </div>
-                </div>
+                            <div className="flex gap-4 items-center">
+                                <h1 className='underline cursor-pointer'>{currentUser?.username}</h1>
+                                <i className="ri-logout-box-r-line p-2 cursor-pointer text-white"></i>
+                            </div>
+                        </div>
+                    )
+                }
+
 
                 {
                     isPublicRoutes ?
