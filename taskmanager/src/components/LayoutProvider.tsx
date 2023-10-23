@@ -35,6 +35,22 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
         }
     };
 
+    const onLogout = async () => {
+        try {
+            dispatch(setLoading(true));
+
+            const { data } = await axios.post('/api/users/logout');
+            console.log('onLogout : ', data.data);
+
+            dispatch(setCurrentUser(null));
+        } catch (error: any) {
+            console.log(error.message);
+            toast.error(error.message);
+        } finally {
+            dispatch(setLoading(false));
+        }
+    };
+
     useEffect(() => {
         if (!isPublicRoutes) {
             fetchUser();
