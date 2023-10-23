@@ -1,13 +1,38 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { usePathname } from 'next/navigation';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCurrentUser } from '@/redux/usersSlice';
+import toast from 'react-hot-toast';
 
 const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
 
+    const { currentUser } = useSelector((state: any) => state.users);
+
     const pathname = usePathname();
     const isPublicRoutes = pathname === '/login' || pathname === '/register';
+    const dispatch = useDispatch();
+
+    const fetchUser = async () => {
+        try {
+            const { data } = await axios.get('/api/users/currentuser');
+            // console.log('fetchUser : ', data.data);
+            
+            dispatch(setCurrentUser(data.data));
+        } catch (error: any) {
+            console.log(error.message);
+            toast.error(error.message);
+        }
+    };
+
+    useEffect(() => {
+        if (!isPublicRoutes) {
+            fetchUser();
+        }
+    }, []);
 
     return (
         <html lang="en">
@@ -18,7 +43,7 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
                     <h1 className='text-xl font-semibold'>Task Manager</h1>
 
                     <div className="flex gap-4 items-center">
-                        <h1 className='underline cursor-pointer'>User Name</h1>
+                        <h1 className='underline cursor-pointer'>{currentUser?.username}</h1>
                         <i className="ri-logout-box-r-line p-2 cursor-pointer text-white"></i>
                     </div>
                 </div>
