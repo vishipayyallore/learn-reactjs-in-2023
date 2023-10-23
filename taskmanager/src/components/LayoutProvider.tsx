@@ -75,31 +75,28 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
                 <Toaster position='top-center' reverseOrder={false} />
 
                 {
-                    !isPublicRoutes &&
-                    (
-                        <>
-                            <div className="bg-primary text-white p-3 flex items-center justify-between rounded-b">
-                                <h1 className='text-xl font-semibold'>Task Manager</h1>
+                    !isPublicRoutes ?
+                        (
+                            <>
+                                <div className="bg-primary text-white p-3 flex items-center justify-between rounded-b">
+                                    <h1 className='text-xl font-semibold'>Task Manager</h1>
 
-                                <div className="flex gap-4 items-center">
-                                    <h1 className='underline cursor-pointer'>{currentUser?.username}</h1>
-                                    <i className="ri-logout-box-r-line p-2 cursor-pointer text-white" onClick={onLogout}></i>
+                                    <div className="flex gap-4 items-center">
+                                        <h1 className='underline cursor-pointer'>{currentUser?.username}</h1>
+                                        <i className="ri-logout-box-r-line p-2 cursor-pointer text-white" onClick={onLogout}></i>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className='h-[80vh] flex p-4 mx-10 border border-primary rounded-sm mt-4'>
+                                <div className='h-[80vh] flex p-4 mx-10 border border-primary rounded-sm mt-4'>
+                                    {children}
+                                </div>
+                            </>
+                        )
+                        :
+                        (
+                            <div>
                                 {children}
                             </div>
-                        </>
-                    )
-                }
-
-                {
-                    isPublicRoutes &&
-                    (
-                        <div>
-                            {children}
-                        </div>
-                    )
+                        )
                 }
             </body>
         </html>
