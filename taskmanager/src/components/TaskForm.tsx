@@ -16,6 +16,11 @@ const TaskForm = ({ task, setTask }: { task: TaskInterface, setTask: React.Dispa
                     <textarea value={task.description} onChange={(e) => setTask({ ...task, description: e.target.value })} name="description" id="description" rows={3} className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
                 </div>
 
+                <div className="col-span-3">
+                    <label htmlFor="reference" className="block text-sm font-medium text-blue-800">Reference</label>
+                    <input type="text" value={task.reference} onChange={(e) => setTask({ ...task, reference: e.target.value })} name="reference" id="reference" className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                </div>
+
                 <div className="flex flex-col">
                     <label htmlFor="status" className="block text-sm font-medium text-blue-800">Status</label>
                     <select value={task.status} onChange={(e) => setTask({ ...task, status: e.target.value })} id="status" name="status" className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
@@ -54,11 +59,6 @@ const TaskForm = ({ task, setTask }: { task: TaskInterface, setTask: React.Dispa
                 <div className="flex flex-col">
                     <label htmlFor="dateToEnd" className="block text-sm font-medium text-blue-800">Date to End</label>
                     <input type="date" value={task.dateToEnd} onChange={(e) => setTask({ ...task, dateToEnd: e.target.value })} name="dateToEnd" id="dateToEnd" className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
-
-                <div className="col-span-3">
-                    <label htmlFor="reference" className="block text-sm font-medium text-blue-800">Reference</label>
-                    <input type="text" value={task.reference} onChange={(e) => setTask({ ...task, reference: e.target.value })} name="reference" id="reference" className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                 </div>
 
             </div>
