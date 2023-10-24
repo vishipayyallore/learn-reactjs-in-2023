@@ -3,6 +3,8 @@
 import { useRouter } from "next/navigation";
 import React from "react";
 
+import TaskForm from "@/components/TaskForm";
+
 const EditTask = () => {
     const router = useRouter();
 
@@ -13,6 +15,8 @@ const EditTask = () => {
                 <button className="btn-outlined rounded-sm shadow-sm"
                     onClick={() => router.push('/tasks')}>Back</button>
             </div>
+
+            <TaskForm />
         </div>
     );
 };
