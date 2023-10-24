@@ -10,15 +10,24 @@
     font-family: 'Poppins', sans-serif;
 }
 
-input {
+input,
+select,
+textarea {
     height: 45px;
     border: 1px solid #8c9295;
     padding: 0 10px;
 }
 
-input:focus {
+input:focus,
+select:focus,
+textarea:focus {
     outline: none;
     border: 1px solid #053f62;
+}
+
+textarea {
+    min-height: 80px;
+    padding: 10px;
 }
 
 button {

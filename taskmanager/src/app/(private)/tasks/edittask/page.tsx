@@ -29,7 +29,7 @@ const EditTask = () => {
                     onClick={() => router.push('/tasks')}>Back</button>
             </div>
 
-            <TaskForm task={task} />
+            <TaskForm task={task} setTask={setTask} />
         </div>
     );
 };
