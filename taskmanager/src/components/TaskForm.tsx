@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 
 import { TaskInterface } from "@/interfaces";
 
-const TaskForm = ({ task, setTask }: { task: TaskInterface, setTask: React.Dispatch<React.SetStateAction<TaskInterface>> }) => {
+const TaskForm = ({ task, setTask, onSave }: { task: TaskInterface, setTask: React.Dispatch<React.SetStateAction<TaskInterface>>, onSave: any }) => {
 
     const router = useRouter();
 
@@ -66,7 +66,7 @@ const TaskForm = ({ task, setTask }: { task: TaskInterface, setTask: React.Dispa
                 </div>
 
                 <div className="col-span-3 flex justify-end gap-4">
-                    <button className="btn-outlined-cancel rounded-sm shadow-sm" onClick={() => { router.push('/tasks') }}>Cancel</button>
+                    <button className="btn-outlined-cancel rounded-sm shadow-sm" onClick={() => { router.push('/tasks'); }}>Cancel</button>
                     <button className="btn-primary rounded-sm shadow-sm" onClick={() => { }}>Save</button>
                 </div>
 

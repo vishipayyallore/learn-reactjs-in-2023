@@ -2,9 +2,13 @@
 
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import axios from "axios";
 
 import TaskForm from "@/components/TaskForm";
 import { TaskInterface } from "@/interfaces";
+import { setLoading } from "@/redux/loadersSlice";
+import toast from "react-hot-toast";
 
 const AddTask = () => {
 
@@ -20,6 +24,31 @@ const AddTask = () => {
         reference: '',
     });
     const router = useRouter();
+    const dispatch = useDispatch();
+
+    const onSave = async () => {
+        // e.preventDefault();
+        try {
+            dispatch(setLoading(true));
+
+            await axios.post('/api/tasks', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(task),
+            });
+
+            toast.success('Task added successfully!');
+
+            router.push('/tasks');
+        } catch (error: any) {
+            console.log(error.message);
+            toast.error('Add Task Failed!. Please try again.', error.message || error.response.data.message);
+        } finally {
+            dispatch(setLoading(false));
+        }
+    };
 
     return (
         <div className=" w-[100%]">
@@ -29,7 +58,7 @@ const AddTask = () => {
                     onClick={() => router.push('/tasks')}>Back</button>
             </div>
 
-            <TaskForm task={task} setTask={setTask} />
+            <TaskForm task={task} setTask={setTask} onSave={onSave} />
         </div>
     );
 };
