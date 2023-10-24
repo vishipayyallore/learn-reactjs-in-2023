@@ -46,6 +46,21 @@ const TaskForm = ({ task, setTask }: { task: TaskInterface, setTask: React.Dispa
                     </select>
                 </div>
 
+                <div className="flex flex-col">
+                    <label htmlFor="dateToStart" className="block text-sm font-medium text-blue-800">Date to Start</label>
+                    <input type="date" value={task.dateToStart} onChange={(e) => setTask({ ...task, dateToStart: e.target.value })} name="dateToStart" id="dateToStart" className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                </div>
+
+                <div className="flex flex-col">
+                    <label htmlFor="dateToEnd" className="block text-sm font-medium text-blue-800">Date to End</label>
+                    <input type="date" value={task.dateToEnd} onChange={(e) => setTask({ ...task, dateToEnd: e.target.value })} name="dateToEnd" id="dateToEnd" className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                </div>
+
+                <div className="col-span-3">
+                    <label htmlFor="reference" className="block text-sm font-medium text-blue-800">Reference</label>
+                    <input type="text" value={task.reference} onChange={(e) => setTask({ ...task, reference: e.target.value })} name="reference" id="reference" className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                </div>
+
             </div>
         </>
     );
