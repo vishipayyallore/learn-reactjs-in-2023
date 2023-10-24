@@ -7,6 +7,10 @@ const TaskForm = ({ task, setTask, onSave }: { task: TaskInterface, setTask: Rea
 
     const router = useRouter();
 
+    const isSaveButtonDisabled = () => {
+        return task.title === '' || task.description === '' || task.status === '' || task.category === '' || task.priority === '' || task.dateToStart === '' || task.dateToEnd === '';
+    };
+
     return (
         <>
             <div className="grid grid-cols-3 mt-2 gap-2">
@@ -67,9 +71,8 @@ const TaskForm = ({ task, setTask, onSave }: { task: TaskInterface, setTask: Rea
 
                 <div className="col-span-3 flex justify-end gap-4">
                     <button className="btn-outlined-cancel rounded-sm shadow-sm" onClick={() => { router.push('/tasks'); }}>Cancel</button>
-                    <button className="btn-primary rounded-sm shadow-sm" onClick={() => { }}>Save</button>
+                    <button className={`${isSaveButtonDisabled() ? 'btn-disabled' : 'btn-primary'} rounded-sm shadow-sm`} onClick={onSave} disabled={isSaveButtonDisabled()}>Save</button>
                 </div>
-
             </div>
         </>
     );
