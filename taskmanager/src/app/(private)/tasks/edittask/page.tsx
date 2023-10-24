@@ -1,11 +1,24 @@
 'use client';
 
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 
 import TaskForm from "@/components/TaskForm";
+import { TaskInterface } from "@/interfaces";
 
 const EditTask = () => {
+
+    const [task, setTask] = useState<TaskInterface>({
+        id: '0',
+        title: '',
+        description: '',
+        status: 'open',
+        category: 'work',
+        priority: 'low',
+        dateToStart: '',
+        dateToEnd: '',
+        reference: '',
+    });
     const router = useRouter();
 
     return (
@@ -16,7 +29,7 @@ const EditTask = () => {
                     onClick={() => router.push('/tasks')}>Back</button>
             </div>
 
-            <TaskForm />
+            <TaskForm task={task} />
         </div>
     );
 };

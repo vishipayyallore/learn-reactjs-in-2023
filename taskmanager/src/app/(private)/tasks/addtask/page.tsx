@@ -8,7 +8,7 @@ import { TaskInterface } from "@/interfaces";
 
 const AddTask = () => {
 
-    const [task = {}, setTask] = useState<TaskInterface>({
+    const [task, setTask] = useState<TaskInterface>({
         id: '0',
         title: '',
         description: '',
@@ -29,7 +29,7 @@ const AddTask = () => {
                     onClick={() => router.push('/tasks')}>Back</button>
             </div>
 
-            <TaskForm />
+            <TaskForm task={task} />
         </div>
     );
 };

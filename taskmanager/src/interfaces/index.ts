@@ -9,7 +9,5 @@ export interface TaskInterface {
     dateToStart: string;
     dateToEnd: string;
     reference: string;
-    // createdAt: Date;
-    // updatedAt: Date;
 };
 
