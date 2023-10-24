@@ -52,6 +52,13 @@ button {
     border: 1px solid #2563EB;
 }
 
+.btn-outlined-cancel {
+    background-color: #fff;
+    cursor: pointer;
+    color: #de630b;
+    border: 1px solid #de630b;
+}
+
 .btn-disabled {
     background-color: #8c9295;
     color: #fff;

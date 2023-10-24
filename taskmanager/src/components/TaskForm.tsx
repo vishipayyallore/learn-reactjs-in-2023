@@ -1,11 +1,15 @@
 import React from "react";
+import { useRouter } from "next/navigation";
 
 import { TaskInterface } from "@/interfaces";
 
 const TaskForm = ({ task, setTask }: { task: TaskInterface, setTask: React.Dispatch<React.SetStateAction<TaskInterface>> }) => {
+
+    const router = useRouter();
+
     return (
         <>
-            <div className="grid grid-cols-3 mt-4 gap-4">
+            <div className="grid grid-cols-3 mt-2 gap-2">
                 <div className="col-span-3">
                     <label htmlFor="title" className="block text-sm font-medium text-blue-800">Title</label>
                     <input type="text" value={task.title} onChange={(e) => setTask({ ...task, title: e.target.value })} name="title" id="title" className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
@@ -59,6 +63,11 @@ const TaskForm = ({ task, setTask }: { task: TaskInterface, setTask: React.Dispa
                 <div className="flex flex-col">
                     <label htmlFor="dateToEnd" className="block text-sm font-medium text-blue-800">Date to End</label>
                     <input type="date" value={task.dateToEnd} onChange={(e) => setTask({ ...task, dateToEnd: e.target.value })} name="dateToEnd" id="dateToEnd" className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                </div>
+
+                <div className="col-span-3 flex justify-end gap-4">
+                    <button className="btn-outlined-cancel rounded-sm shadow-sm" onClick={() => { router.push('/tasks') }}>Cancel</button>
+                    <button className="btn-primary rounded-sm shadow-sm" onClick={() => { }}>Save</button>
                 </div>
 
             </div>
