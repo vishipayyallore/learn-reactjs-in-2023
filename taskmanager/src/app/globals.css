@@ -29,6 +29,13 @@ button {
     padding: 0 20px;
 }
 
+.btn-primary {
+    background-color: #2563EB;
+    cursor: pointer;
+    color: #fff;
+    border: 1px solid #042367;
+}
+
 .btn-outlined {
     background-color: #fff;
     cursor: pointer;
