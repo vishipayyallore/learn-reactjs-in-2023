@@ -13,7 +13,6 @@ import toast from "react-hot-toast";
 const AddTask = () => {
 
     const [task, setTask] = useState<TaskInterface>({
-        id: '0',
         title: '',
         description: '',
         status: 'open',
@@ -31,13 +30,7 @@ const AddTask = () => {
         try {
             dispatch(setLoading(true));
 
-            await axios.post('/api/tasks', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(task),
-            });
+            await axios.post('/api/tasks', task);
 
             toast.success('Task added successfully!');
 
