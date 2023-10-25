@@ -14,12 +14,15 @@ export const POST = async (request: NextRequest) => {
         }
 
         const requestBody = await request.json();
+        console.log('Request Body: ', requestBody);
         requestBody.user = userId;
+        console.log('User ID: ', userId);
 
         await Task.create(requestBody);
 
         return NextResponse.json({ message: "Task created successfully" }, { status: 201 });
     } catch (error: any) {
+        console.error(error);
         return NextResponse.json({ message: error.message }, { status: 500 });
     }
 };
