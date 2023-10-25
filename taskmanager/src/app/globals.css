@@ -10,15 +10,24 @@
     font-family: 'Poppins', sans-serif;
 }
 
-input {
+input,
+select,
+textarea {
     height: 45px;
     border: 1px solid #8c9295;
     padding: 0 10px;
 }
 
-input:focus {
+input:focus,
+select:focus,
+textarea:focus {
     outline: none;
     border: 1px solid #053f62;
+}
+
+textarea {
+    min-height: 80px;
+    padding: 10px;
 }
 
 button {
@@ -27,6 +36,27 @@ button {
     padding: 0 10px;
     cursor: pointer;
     padding: 0 20px;
+}
+
+.btn-primary {
+    background-color: #2563EB;
+    cursor: pointer;
+    color: #fff;
+    border: 1px solid #042367;
+}
+
+.btn-outlined {
+    background-color: #fff;
+    cursor: pointer;
+    color: #2563EB;
+    border: 1px solid #2563EB;
+}
+
+.btn-outlined-cancel {
+    background-color: #fff;
+    cursor: pointer;
+    color: #de630b;
+    border: 1px solid #de630b;
 }
 
 .btn-disabled {
