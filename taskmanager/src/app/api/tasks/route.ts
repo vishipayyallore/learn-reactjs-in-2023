@@ -27,3 +27,19 @@ export const POST = async (request: NextRequest) => {
     }
 };
 
+export const GET = async (request: NextRequest) => {
+    try {
+        const userId = await validateJwtAndGetUserId(request);
+        if (!userId) {
+            return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+        }
+
+        const tasks = await Task.find({ user: userId });
+
+        return NextResponse.json(tasks, { status: 200 });
+    } catch (error: any) {
+        console.error(error);
+        return NextResponse.json({ message: error.message }, { status: 500 });
+    }
+};
+

@@ -1,5 +1,6 @@
 
 export interface TaskInterface {
+    _id?: string;
     title: string;
     description: string;
     status: string | 'open' | 'in-progress' | 'closed' | 'archived';
@@ -8,5 +9,7 @@ export interface TaskInterface {
     dateToStart: string;
     dateToEnd: string;
     reference: string;
+    createdAt?: string;
+    updatedAt?: string;
 };
 
