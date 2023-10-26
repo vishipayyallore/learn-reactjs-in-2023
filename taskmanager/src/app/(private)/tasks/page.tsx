@@ -3,6 +3,7 @@ import Link from "next/link";
 import { cookies } from "next/headers";
 import axios from "axios";
 import { TaskInterface } from "@/interfaces";
+import DeleteTaskButton from "./_components/DeleteTaskButton";
 
 const getTasks = async () => {
     try {
@@ -65,9 +66,10 @@ const Tasks = async () => {
                                 {getProperty('Updated At', task.updatedAt)}
                             </div>
                             <div className="flex justify-end gap-5">
-                                <button className="btn-outlined-cancel hover:bg-red-500 hover:text-white rounded-sm shadow-sm">
+                                {/* <button className="btn-outlined-cancel hover:bg-red-500 hover:text-white rounded-sm shadow-sm">
                                     Delete
-                                </button>
+                                </button> */}
+                                <DeleteTaskButton taskid={task._id!} />
                                 <button className="bg-blue-600 hover:bg-blue-900 text-white border border-blue-200 rounded-sm shadow-sm">
                                     <Link href={`/tasks/edittask?taskid=${task._id}`}>Edit</Link>
                                 </button>
