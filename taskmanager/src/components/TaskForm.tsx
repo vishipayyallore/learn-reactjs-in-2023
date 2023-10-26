@@ -70,8 +70,8 @@ const TaskForm = ({ task, setTask, onSave }: { task: TaskInterface, setTask: Rea
                 </div>
 
                 <div className="col-span-3 flex justify-end gap-4">
-                    <button className="btn-outlined-cancel rounded-sm shadow-sm" onClick={() => { router.push('/tasks'); }}>Cancel</button>
-                    <button className={`${isSaveButtonDisabled() ? 'btn-disabled' : 'btn-primary'} rounded-sm shadow-sm`} onClick={onSave} disabled={isSaveButtonDisabled()}>Save</button>
+                    <button className="btn-outlined-cancel hover:bg-red-500 hover:text-white rounded-sm shadow-sm" onClick={() => { router.push('/tasks'); }}>Cancel</button>
+                    <button className={`${isSaveButtonDisabled() ? 'btn-disabled' : 'bg-blue-600'} hover:bg-blue-900 text-white border border-blue-200 rounded-sm shadow-sm`} onClick={onSave} disabled={isSaveButtonDisabled()}>Save</button>
                 </div>
             </div>
         </>

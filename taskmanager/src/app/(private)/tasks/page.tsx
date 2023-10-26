@@ -65,7 +65,7 @@ const Tasks = async () => {
                                 {getProperty('Updated At', task.updatedAt)}
                             </div>
                             <div className="flex justify-end gap-5">
-                                <button className="btn-outlined-cancel rounded-sm shadow-sm">
+                                <button className="btn-outlined-cancel hover:bg-red-500 hover:text-white rounded-sm shadow-sm">
                                     Delete
                                 </button>
                                 <button className="bg-blue-600 hover:bg-blue-900 text-white border border-blue-200 rounded-sm shadow-sm">
