@@ -34,7 +34,7 @@ export const GET = async (request: NextRequest) => {
             return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
         }
 
-        const tasks = await Task.find({ user: userId });
+        const tasks = await Task.find({ user: userId }).sort({ createdAt: -1 });
 
         return NextResponse.json(tasks, { status: 200 });
     } catch (error: any) {
