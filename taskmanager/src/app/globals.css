@@ -59,6 +59,12 @@ button {
     border: 1px solid #de630b;
 }
 
+.btn-outlined-cancel
+:hover {
+    background-color: #de630b;
+    color: #fff;
+}
+
 .btn-disabled {
     background-color: #8c9295;
     color: #fff;
