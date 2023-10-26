@@ -40,7 +40,7 @@ const Tasks = async () => {
         <div className=" w-[100%]">
             <div className="flex justify-between items-center w-[100%]">
                 <h1 className="text-2xl font-bold text-primary">Tasks</h1>
-                <button className="btn-primary rounded-sm shadow-sm">
+                <button className="bg-blue-600 hover:bg-blue-900 text-white border border-blue-200 rounded-sm shadow-sm">
                     <Link href="/tasks/addtask">New Task</Link>
                 </button>
             </div>
@@ -68,7 +68,7 @@ const Tasks = async () => {
                                 <button className="btn-outlined-cancel rounded-sm shadow-sm">
                                     Delete
                                 </button>
-                                <button className="btn-primary rounded-sm shadow-sm">
+                                <button className="bg-blue-600 hover:bg-blue-900 text-white border border-blue-200 rounded-sm shadow-sm">
                                     <Link href={`/tasks/edittask?taskid=${task._id}`}>Edit</Link>
                                 </button>
                             </div>
