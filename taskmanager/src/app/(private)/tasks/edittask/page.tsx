@@ -53,7 +53,7 @@ const EditTask = () => {
             // fetch task from db
             getTaskById();
         }
-    }, []);
+    }, [taskId]);
 
     return (
         <div className=" w-[100%]">
