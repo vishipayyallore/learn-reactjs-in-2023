@@ -22,3 +22,21 @@ export const GET = async (request: NextRequest, { params }: { params: { taskid: 
     }
 };
 
+export const PUT = async (request: NextRequest, { params }: { params: { taskid: string } }) => {
+    try {
+        const userId = await validateJwtAndGetUserId(request);
+        if (!userId) {
+            return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+        }
+
+        const requestBody = await request.json();
+
+        const task = await Task.findOneAndUpdate({ user: userId, _id: params.taskid }, requestBody, { new: true });
+
+        return NextResponse.json(task, { status: 200 });
+    } catch (error: any) {
+        console.error(error);
+        return NextResponse.json({ message: error.message }, { status: 500 });
+    }
+};
+
