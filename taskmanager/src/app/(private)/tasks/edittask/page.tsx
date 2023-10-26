@@ -48,6 +48,26 @@ const EditTask = () => {
         }
     }
 
+    const onSave = async () => {
+        try {
+            dispatch(setLoading(true));
+
+            await axios.put(`/api/tasks/${taskId}`, task);
+
+            toast.success('Task updated successfully!');
+
+            // Clear the Router Cache
+            router.refresh();
+
+            router.push('/tasks');
+        } catch (error: any) {
+            console.log(error.message);
+            toast.error('Add Task Failed!. Please try again.', error.message || error.response.data.message);
+        } finally {
+            dispatch(setLoading(false));
+        }
+    };
+
     useEffect(() => {
         if (taskId) {
             // fetch task from db
@@ -63,7 +83,7 @@ const EditTask = () => {
                     onClick={() => router.push('/tasks')}>Back</button>
             </div>
 
-            <TaskForm task={task} setTask={setTask} onSave={() => { }} />
+            <TaskForm task={task} setTask={setTask} onSave={onSave} />
         </div>
     );
 };

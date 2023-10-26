@@ -26,7 +26,6 @@ const AddTask = () => {
     const dispatch = useDispatch();
 
     const onSave = async () => {
-        // e.preventDefault();
         try {
             dispatch(setLoading(true));
 
