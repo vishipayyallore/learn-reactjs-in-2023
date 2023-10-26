@@ -86,7 +86,7 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
                                         <i className="ri-logout-box-r-line p-2 cursor-pointer text-white" onClick={onLogout}></i>
                                     </div>
                                 </div>
-                                <div className='h-[80vh] flex p-4 mx-10 border border-primary rounded-sm mt-4'>
+                                <div className='flex p-4 mx-10 border border-primary rounded-sm mt-4 mb-4'>
                                     {children}
                                 </div>
                             </>
