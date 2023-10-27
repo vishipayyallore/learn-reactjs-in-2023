@@ -28,17 +28,17 @@ const Home = async () => {
   const dashboardData: any = await getDashboardData();
 
   return (
-    <div className='items-center justify-center'>
+    <div className='w-[100%]'>
       <h1 className='text-2xl font-semibold text-blue-600'>Welcome you have a total {dashboardData.totalTasks} Tasks.</h1>
 
-      <div className="grid grid-cols-6 mt-5 gap-10 ">
-        <TaskCard title='Open' count={dashboardData.openTasks} path='/tasks' queryParams={{ status: 'open' }} />
-        <TaskCard title='In Progress' count={dashboardData.inProgressTasks} path='/tasks' queryParams={{ status: 'in-progress' }} />
-        <TaskCard title='Closed' count={dashboardData.closedTasks} path='/tasks' queryParams={{ status: 'closed' }} />
+      <div className="grid grid-cols-6 mt-5 gap-10">
+        <TaskCard styles='#C70039' title='Open' count={dashboardData.openTasks} path='/tasks' queryParams={{ status: 'open' }} />
+        <TaskCard styles='#F4E869' title='In Progress' count={dashboardData.inProgressTasks} path='/tasks' queryParams={{ status: 'in-progress' }} />
+        <TaskCard styles='#79AC78' title='Closed' count={dashboardData.closedTasks} path='/tasks' queryParams={{ status: 'closed' }} />
 
-        <TaskCard title='Low' count={dashboardData.lowPriorityTasks} path='/tasks' queryParams={{ status: 'low' }} />
-        <TaskCard title='Medium' count={dashboardData.mediumPriorityTasks} path='/tasks' queryParams={{ status: 'medium' }} />
-        <TaskCard title='High' count={dashboardData.highPriorityTasks} path='/tasks' queryParams={{ status: 'high' }} />
+        <TaskCard styles='#79AC78' title='Low' count={dashboardData.lowPriorityTasks} path='/tasks' queryParams={{ status: 'low' }} />
+        <TaskCard styles='#F4E869' title='Medium' count={dashboardData.mediumPriorityTasks} path='/tasks' queryParams={{ status: 'medium' }} />
+        <TaskCard styles='#C70039' title='High' count={dashboardData.highPriorityTasks} path='/tasks' queryParams={{ status: 'high' }} />
       </div>
     </div>
   )
