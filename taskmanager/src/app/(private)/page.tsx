@@ -37,8 +37,8 @@ const Home = async () => {
         <TaskCard title='Closed' count={dashboardData.closedTasks} path='/tasks' queryParams={{ status: 'closed' }} />
 
         <TaskCard title='Low' count={dashboardData.lowPriorityTasks} path='/tasks' queryParams={{ status: 'low' }} />
-        <TaskCard title='Medium' count={dashboardData.lowPriorityTasks} path='/tasks' queryParams={{ status: 'medium' }} />
-        <TaskCard title='High' count={dashboardData.lowPriorityTasks} path='/tasks' queryParams={{ status: 'high' }} />
+        <TaskCard title='Medium' count={dashboardData.mediumPriorityTasks} path='/tasks' queryParams={{ status: 'medium' }} />
+        <TaskCard title='High' count={dashboardData.highPriorityTasks} path='/tasks' queryParams={{ status: 'high' }} />
       </div>
     </div>
   )
