@@ -17,9 +17,9 @@ export const GET = async (request: NextRequest) => {
 
         const dashboardData = {
             totalTasks: tasks.length,
-            pendingTasks: tasks.filter(task => task.status === 'pending').length,
+            pendingTasks: tasks.filter(task => task.status === 'open').length,
             inProgressTasks: tasks.filter(task => task.status === 'in-progress').length,
-            completedTasks: tasks.filter(task => task.status === 'completed').length,
+            completedTasks: tasks.filter(task => task.status === 'closed').length,
         };
 
         return NextResponse.json(dashboardData, { status: 200 });
