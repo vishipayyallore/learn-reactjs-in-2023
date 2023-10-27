@@ -15,7 +15,14 @@ export const GET = async (request: NextRequest) => {
 
         const tasks = await Task.find({ user: userId }).sort({ createdAt: -1 });
 
-        return NextResponse.json(tasks, { status: 200 });
+        const dashboardData = {
+            totalTasks: tasks.length,
+            pendingTasks: tasks.filter(task => task.status === 'pending').length,
+            inProgressTasks: tasks.filter(task => task.status === 'in-progress').length,
+            completedTasks: tasks.filter(task => task.status === 'completed').length,
+        };
+
+        return NextResponse.json(dashboardData, { status: 200 });
     } catch (error: any) {
         console.log(error);
         return NextResponse.json({ error: error.message }, { status: 500 });
