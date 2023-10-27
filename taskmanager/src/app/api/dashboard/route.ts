@@ -21,7 +21,7 @@ export const GET = async (request: NextRequest) => {
             // Status
             openTasks: tasks.filter(task => task.status === 'open').length,
             inProgressTasks: tasks.filter(task => task.status === 'in-progress').length,
-            completedTasks: tasks.filter(task => task.status === 'closed').length,
+            closedTasks: tasks.filter(task => task.status === 'closed').length,
 
             // Priority
             lowPriorityTasks: tasks.filter(task => task.priority === 'low').length,

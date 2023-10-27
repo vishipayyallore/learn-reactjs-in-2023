@@ -31,8 +31,10 @@ const Home = async () => {
     <div>
       <h1 className='text-2xl font-semibold text-blue-600'>Welcome you have a total {dashboardData.totalTasks} Tasks.</h1>
 
-      <div className="grid grid-cols-3 mt-5">
-        <TaskCard title='Open' count={dashboardData.openTasks} path='/tasks' queryParams={{ status: '' }} />
+      <div className="grid grid-cols-3 mt-5 gap-5">
+        <TaskCard title='Open' count={dashboardData.openTasks} path='/tasks' queryParams={{ status: 'open' }} />
+        <TaskCard title='In Progress' count={dashboardData.inProgressTasks} path='/tasks' queryParams={{ status: 'in-progress' }} />
+        <TaskCard title='Closed' count={dashboardData.closedTasks} path='/tasks' queryParams={{ status: 'closed' }} />
       </div>
     </div>
   )
