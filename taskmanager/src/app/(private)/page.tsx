@@ -24,16 +24,7 @@ const Home = async () => {
 
   return (
     <div>
-      <h1>Home Page</h1>
-
-      {
-        user && (
-          <div>
-            <h1>Name: {user.username}</h1>
-            <h1>Email: {user.email}</h1>
-          </div>
-        )
-      }
+      <h1 className='text-2xl font-semibold text-blue-600'>Welcome to Home Page</h1>
     </div>
   )
 }
