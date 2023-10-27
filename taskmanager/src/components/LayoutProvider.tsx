@@ -79,7 +79,7 @@ const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
                         (
                             <>
                                 <div className="bg-primary text-white p-3 flex items-center justify-between rounded-b">
-                                    <h1 className='text-xl font-semibold hover:text-green-100 cursor-pointer' onClick={() => router.push('/')}>Task Manager</h1>
+                                    <h1 className='text-xl font-semibold hover:text-green-200 cursor-pointer' onClick={() => router.push('/')}>Task Manager</h1>
 
                                     <div className="flex gap-4 items-center">
                                         <h1 className='underline cursor-pointer'>{currentUser?.username}</h1>
