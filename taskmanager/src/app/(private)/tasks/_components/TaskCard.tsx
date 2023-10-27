@@ -5,9 +5,9 @@ const TaskCard = ({ title, count, path, queryParams }: { title: string, count: n
     return (
         <>
             <Link href={{ pathname: path, query: queryParams }}>
-                <div className='flex flex-col gap-5 p-5 border border-gray-300'>
-                    <h1>{title}</h1>
-                    <h1>{count}</h1>
+                <div className='flex flex-col gap-5 p-5 border border-gray-300 items-center justify-center'>
+                    <h1 className='text-xl font-semibold text-gray-600'>{title}</h1>
+                    <h1 className='text-5xl font-semibold text-gray-600'>{count}</h1>
                 </div>
             </Link>
         </>
