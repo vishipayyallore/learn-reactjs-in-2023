@@ -2,38 +2,33 @@ import React from 'react';
 import { cookies } from "next/headers";
 import axios from 'axios';
 
-const getUserData = async () => {
+const getDashboardData = async () => {
   try {
-    const cookieStore = cookies();
-    const token = cookieStore.get("token")?.value;
-    const endpoint = `${process.env.API_URL}/users/currentuser`;
-    const response = await axios.get(endpoint, {
-      headers: {
-        "Cookie": `token=${token}`,
-      },
-    });
+      const cookieStore = cookies();
+      const token = cookieStore.get("token")?.value;
 
-    return response.data.data;
+      const endpoint = `${process.env.API_URL}/dashboard`;
+      const response = await axios.get(endpoint, {
+          headers: {
+              "Cookie": `token=${token}`,
+          },
+      });
+
+      console.log('getTasks :', response.data);
+      return response.data;
+
   } catch (error: any) {
-    throw new Error(error.message);
+      console.log(error.message);
+      return [];
   }
 };
 
 const Home = async () => {
-  const user: any = await getUserData();
-
+  const dashboardData: any = await getDashboardData();
+  
   return (
     <div>
-      <h1>Home Page</h1>
-
-      {
-        user && (
-          <div>
-            <h1>Name: {user.username}</h1>
-            <h1>Email: {user.email}</h1>
-          </div>
-        )
-      }
+      <h1 className='text-2xl font-semibold text-blue-600'>Welcome to Home Page</h1>
     </div>
   )
 }
