@@ -19,7 +19,7 @@ export const GET = async (request: NextRequest) => {
             totalTasks: tasks.length,
 
             // Status
-            pendingTasks: tasks.filter(task => task.status === 'open').length,
+            openTasks: tasks.filter(task => task.status === 'open').length,
             inProgressTasks: tasks.filter(task => task.status === 'in-progress').length,
             completedTasks: tasks.filter(task => task.status === 'closed').length,
 
