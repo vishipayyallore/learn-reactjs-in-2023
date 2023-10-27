@@ -26,7 +26,6 @@ const AddTask = () => {
     const dispatch = useDispatch();
 
     const onSave = async () => {
-        // e.preventDefault();
         try {
             dispatch(setLoading(true));
 
@@ -34,6 +33,9 @@ const AddTask = () => {
 
             toast.success('Task added successfully!');
 
+            // Clear the Router Cache
+            router.refresh();
+            
             router.push('/tasks');
         } catch (error: any) {
             console.log(error.message);
