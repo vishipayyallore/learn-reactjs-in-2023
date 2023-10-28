@@ -17,9 +17,17 @@ export const GET = async (request: NextRequest) => {
 
         const dashboardData = {
             totalTasks: tasks.length,
-            pendingTasks: tasks.filter(task => task.status === 'pending').length,
+
+            // Status
+            openTasks: tasks.filter(task => task.status === 'open').length,
             inProgressTasks: tasks.filter(task => task.status === 'in-progress').length,
-            completedTasks: tasks.filter(task => task.status === 'completed').length,
+            closedTasks: tasks.filter(task => task.status === 'closed').length,
+
+            // Priority
+            lowPriorityTasks: tasks.filter(task => task.priority === 'low').length,
+            mediumPriorityTasks: tasks.filter(task => task.priority === 'medium').length,
+            highPriorityTasks: tasks.filter(task => task.priority === 'high').length,
+            urgentPriorityTasks: tasks.filter(task => task.priority === 'urgent').length,
         };
 
         return NextResponse.json(dashboardData, { status: 200 });
