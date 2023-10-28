@@ -33,6 +33,11 @@ const Tasks = async ({ searchParams }: { searchParams: any }) => {
 
     const tasks: any = await getTasks(searchParams);
 
+    const filtersApplied = {
+        status: searchParams.status,
+        priority: searchParams.priority
+    };
+
     const getProperty = (key: string, value: any) => (
         <div className="flex flex-col text-sm">
             <span className="font-semibold text-primary">{key}</span>
@@ -43,7 +48,14 @@ const Tasks = async ({ searchParams }: { searchParams: any }) => {
     return (
         <div className=" w-[100%]">
             <div className="flex justify-between items-center w-[100%]">
-                <h1 className="text-2xl font-bold text-primary">Tasks</h1>
+                <div>
+                    <h1 className="text-2xl font-bold text-primary">Tasks</h1>
+                    <p className="text-gray text-sm">{tasks.length} tasks of
+                        {filtersApplied.status && <span className="text-gray text-sm uppercase"> {filtersApplied.status} status </span>}
+                        {filtersApplied.priority && <span className="text-gray text-sm uppercase"> {filtersApplied.priority} priority </span>}
+                        found.
+                    </p>
+                </div>
                 <div className="flex gap-5 items-center">
                     <ClearFilters />
                     <button className="bg-blue-600 hover:bg-blue-900 text-white border border-blue-200 rounded-sm shadow-sm">
