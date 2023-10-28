@@ -5,12 +5,14 @@ import axios from "axios";
 import { TaskInterface } from "@/interfaces";
 import DeleteTaskButton from "./_components/DeleteTaskButton";
 
-const getTasks = async () => {
+const getTasks = async (searchParams: {}) => {
     try {
+        const searchParamsString = new URLSearchParams(searchParams).toString();
         const cookieStore = cookies();
         const token = cookieStore.get("token")?.value;
 
-        const endpoint = `${process.env.API_URL}/tasks`;
+        const endpoint = `${process.env.API_URL}/tasks` + (searchParamsString ? `?${searchParamsString}` : '');
+        console.log('endpoint :', endpoint);
         const response = await axios.get(endpoint, {
             headers: {
                 "Cookie": `token=${token}`,
@@ -26,9 +28,9 @@ const getTasks = async () => {
     }
 };
 
-const Tasks = async () => {
+const Tasks = async ({ searchParams }: { searchParams: any }) => {
 
-    const tasks: any = await getTasks();
+    const tasks: any = await getTasks(searchParams);
 
     const getProperty = (key: string, value: any) => (
         <div className="flex flex-col text-sm">
