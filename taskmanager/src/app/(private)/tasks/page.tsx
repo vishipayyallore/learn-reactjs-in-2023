@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 import axios from "axios";
 import { TaskInterface } from "@/interfaces";
 import DeleteTaskButton from "./_components/DeleteTaskButton";
+import ClearFilters from "./_components/ClearFilters";
 
 const getTasks = async (searchParams: {}) => {
     try {
@@ -43,9 +44,12 @@ const Tasks = async ({ searchParams }: { searchParams: any }) => {
         <div className=" w-[100%]">
             <div className="flex justify-between items-center w-[100%]">
                 <h1 className="text-2xl font-bold text-primary">Tasks</h1>
-                <button className="bg-blue-600 hover:bg-blue-900 text-white border border-blue-200 rounded-sm shadow-sm">
-                    <Link href="/tasks/addtask">New Task</Link>
-                </button>
+                <div className="flex gap-5 items-center">
+                    <ClearFilters />
+                    <button className="bg-blue-600 hover:bg-blue-900 text-white border border-blue-200 rounded-sm shadow-sm">
+                        <Link href="/tasks/addtask">New Task</Link>
+                    </button>
+                </div>
             </div>
 
             <div className="flex flex-col mt-2 gap-5">
