@@ -50,10 +50,10 @@ const Tasks = async ({ searchParams }: { searchParams: any }) => {
             <div className="flex justify-between items-center w-[100%]">
                 <div>
                     <h1 className="text-2xl font-bold text-primary">Tasks</h1>
-                    <p className="text-gray text-sm">{tasks.length} tasks of
-                        {filtersApplied.status && <span className="text-gray text-sm uppercase"> {filtersApplied.status} status </span>}
-                        {filtersApplied.priority && <span className="text-gray text-sm uppercase"> {filtersApplied.priority} priority </span>}
-                        found.
+                    <p className="text-gray text-sm">{tasks.length} tasks
+                        {filtersApplied.status && <span className="text-gray text-sm">  of <span className="uppercase">{filtersApplied.status}</span> status </span>}
+                        {filtersApplied.priority && <span className="text-gray text-sm">  of <span className="uppercase">{filtersApplied.priority}</span> priority </span>}
+                        <span> found.</span>
                     </p>
                 </div>
                 <div className="flex gap-5 items-center">
