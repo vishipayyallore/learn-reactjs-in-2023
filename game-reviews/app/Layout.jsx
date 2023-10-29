@@ -4,14 +4,18 @@ const RootLayout = ({ children }) => (
     <html lang="en">
         <head>
             <meta charSet="utf-8" />
-            <title>React SSR</title>
+            <title>Indie Gamer - Reviews</title>
         </head>
-        <body>
-            <div>
-                <div className="container">
-                    {children}
-                </div>
-            </div>
+        <body suppressHydrationWarning={true}>
+            <header>
+                [header]
+            </header>
+            <main>
+                {children}
+            </main>
+            <footer>
+                [footer]
+            </footer>
         </body>
     </html>
 );
