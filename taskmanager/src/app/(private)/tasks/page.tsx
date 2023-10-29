@@ -4,13 +4,16 @@ import { cookies } from "next/headers";
 import axios from "axios";
 import { TaskInterface } from "@/interfaces";
 import DeleteTaskButton from "./_components/DeleteTaskButton";
+import ClearFilters from "./_components/ClearFilters";
 
-const getTasks = async () => {
+const getTasks = async (searchParams: {}) => {
     try {
+        const searchParamsString = new URLSearchParams(searchParams).toString();
         const cookieStore = cookies();
         const token = cookieStore.get("token")?.value;
 
-        const endpoint = `${process.env.API_URL}/tasks`;
+        const endpoint = `${process.env.API_URL}/tasks` + (searchParamsString ? `?${searchParamsString}` : '');
+        console.log('endpoint :', endpoint);
         const response = await axios.get(endpoint, {
             headers: {
                 "Cookie": `token=${token}`,
@@ -26,9 +29,14 @@ const getTasks = async () => {
     }
 };
 
-const Tasks = async () => {
+const Tasks = async ({ searchParams }: { searchParams: any }) => {
 
-    const tasks: any = await getTasks();
+    const tasks: any = await getTasks(searchParams);
+
+    const filtersApplied = {
+        status: searchParams.status,
+        priority: searchParams.priority
+    };
 
     const getProperty = (key: string, value: any) => (
         <div className="flex flex-col text-sm">
@@ -40,10 +48,20 @@ const Tasks = async () => {
     return (
         <div className=" w-[100%]">
             <div className="flex justify-between items-center w-[100%]">
-                <h1 className="text-2xl font-bold text-primary">Tasks</h1>
-                <button className="bg-blue-600 hover:bg-blue-900 text-white border border-blue-200 rounded-sm shadow-sm">
-                    <Link href="/tasks/addtask">New Task</Link>
-                </button>
+                <div>
+                    <h1 className="text-2xl font-bold text-primary">Tasks</h1>
+                    <p className="text-gray text-sm">{tasks.length} tasks
+                        {filtersApplied.status && <span className="text-gray text-sm">  of <span className="uppercase">{filtersApplied.status}</span> status </span>}
+                        {filtersApplied.priority && <span className="text-gray text-sm">  of <span className="uppercase">{filtersApplied.priority}</span> priority </span>}
+                        <span> found.</span>
+                    </p>
+                </div>
+                <div className="flex gap-5 items-center">
+                    <ClearFilters />
+                    <button className="bg-blue-600 hover:bg-blue-900 text-white border border-blue-200 rounded-sm shadow-sm">
+                        <Link href="/tasks/addtask">New Task</Link>
+                    </button>
+                </div>
             </div>
 
             <div className="flex flex-col mt-2 gap-5">

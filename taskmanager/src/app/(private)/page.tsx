@@ -36,9 +36,9 @@ const Home = async () => {
         <TaskCard styles='#F4E869' title='In Progress' count={dashboardData.inProgressTasks} path='/tasks' queryParams={{ status: 'in-progress' }} />
         <TaskCard styles='#79AC78' title='Closed' count={dashboardData.closedTasks} path='/tasks' queryParams={{ status: 'closed' }} />
 
-        <TaskCard styles='#79AC78' title='Low' count={dashboardData.lowPriorityTasks} path='/tasks' queryParams={{ status: 'low' }} />
-        <TaskCard styles='#F4E869' title='Medium' count={dashboardData.mediumPriorityTasks} path='/tasks' queryParams={{ status: 'medium' }} />
-        <TaskCard styles='#C70039' title='High' count={dashboardData.highPriorityTasks} path='/tasks' queryParams={{ status: 'high' }} />
+        <TaskCard styles='#79AC78' title='Low' count={dashboardData.lowPriorityTasks} path='/tasks' queryParams={{ priority: 'low' }} />
+        <TaskCard styles='#F4E869' title='Medium' count={dashboardData.mediumPriorityTasks} path='/tasks' queryParams={{ priority: 'medium' }} />
+        <TaskCard styles='#C70039' title='High' count={dashboardData.highPriorityTasks} path='/tasks' queryParams={{ priority: 'high' }} />
       </div>
     </div>
   )
