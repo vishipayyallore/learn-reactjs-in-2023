@@ -2,22 +2,22 @@
 
 import React from "react";
 
-import PhotoList from "@/components/PhotoList";
 import './CountryCard.css';
+import CountriesList from "@/components/CountriesList";
 
-const PhotosPage = () => {
+const CountriesPage = () => {
 
-  const [photos, setPhotos] = React.useState([]);
+  const [countries, setCountries] = React.useState([]);
 
   React.useEffect(() => {
-    getphotos();
+    getCountries();
   }, []);
 
-  const getphotos = async () => {
+  const getCountries = async () => {
     try {
       await fetch('https://localhost:7289/api/countries')
         .then(response => response.json())
-        .then(data => setPhotos(data))
+        .then(data => setCountries(data))
     } catch (error: any) {
       console.error(error);
     }
@@ -26,11 +26,11 @@ const PhotosPage = () => {
   return (
     <>
       <div>
-        <h1 className="text-4xl font-bold text-center text-cyan-900">Photo Gallery</h1>
+        <h1 className="text-4xl font-bold text-center text-cyan-900">Countries</h1>
         <hr></hr>
 
         <div>
-          <PhotoList photos={photos.slice(0, 6)} />
+          <CountriesList countries={countries.slice(0, 6)} />
         </div>
 
       </div>
@@ -38,4 +38,4 @@ const PhotosPage = () => {
   )
 };
 
-export default PhotosPage;
+export default CountriesPage;
