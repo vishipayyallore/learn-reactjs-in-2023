@@ -6,6 +6,7 @@ const Header = () => {
             <Link className="text-2xl font-bold" href='/'>eCommerce</Link>
 
             <div className='flex gap-5'>
+                <Link href='/countries'>Countries</Link>
                 <Link href='/photos'>Photo Gallery</Link>
                 <Link href='/orders'>Orders</Link>
                 <Link href='/profile'>Profile</Link>
