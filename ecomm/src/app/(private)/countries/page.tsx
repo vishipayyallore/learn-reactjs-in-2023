@@ -3,7 +3,7 @@
 import React from "react";
 
 import PhotoList from "@/components/PhotoList";
-import './PhotoCard.css';
+import './CountryCard.css';
 
 const PhotosPage = () => {
 
@@ -15,7 +15,7 @@ const PhotosPage = () => {
 
   const getphotos = async () => {
     try {
-      await fetch('https://jsonplaceholder.typicode.com/photos')
+      await fetch('https://localhost:7289/api/countries')
         .then(response => response.json())
         .then(data => setPhotos(data))
     } catch (error: any) {
