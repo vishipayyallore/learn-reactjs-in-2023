@@ -8,7 +8,7 @@ interface CountryCardProps {
     country: CountryInterface;
 }
 
-const PhotoCard: React.FC<CountryCardProps> = ({ country }) => {
+const CountryCard: React.FC<CountryCardProps> = ({ country }) => {
     return (
         <div className="country-card">
             <Image src='https://via.placeholder.com/150/92c952' alt={country.countryName} width={100} height={100} />
@@ -17,4 +17,4 @@ const PhotoCard: React.FC<CountryCardProps> = ({ country }) => {
     );
 };
 
-export default PhotoCard;
+export default CountryCard;
