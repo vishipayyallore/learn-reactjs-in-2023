@@ -10,7 +10,7 @@ interface CountryCardProps {
 
 const PhotoCard: React.FC<CountryCardProps> = ({ country }) => {
     return (
-        <div className="photo-card">
+        <div className="country-card">
             <Image src='https://via.placeholder.com/150/92c952' alt={country.countryName} width={100} height={100} />
             <h2>{country.countryName}</h2>
         </div>
