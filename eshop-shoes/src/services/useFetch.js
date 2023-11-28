@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 
+const baseUrl = process.env.REACT_APP_API_BASE_URL;
+
 export default function useFetch(url, options) {
-    const [response, setResponse] = useState(null);
+    const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -9,16 +11,16 @@ export default function useFetch(url, options) {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const res = await fetch(url, options);
+                const res = await fetch(`${baseUrl}${url}`, options);
                 const json = await res.json();
-                setResponse(json);
+                setData(json);
                 setLoading(false);
             } catch (error) {
                 setError(error);
             }
         };
         fetchData();
-    }, []);
+    }, [url, options]);
 
-    return { response, error, loading };
+    return { response: data, error, loading };
 }
