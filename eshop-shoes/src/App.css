@@ -39,10 +39,10 @@ nav {
 
 footer {
   text-align: center;
-  color: gray;
-  padding: 20px 0 20px 0;
+  color: white;
+  /* padding: 2px 0 2px 0; */
   flex-shrink: 0;
-  background-color: gainsboro;
+  background-color: rgb(29, 88, 155);
 }
 
 header ul {
