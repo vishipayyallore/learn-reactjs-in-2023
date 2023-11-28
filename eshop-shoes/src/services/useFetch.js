@@ -12,6 +12,7 @@ export default function useFetch(url, options) {
             setLoading(true);
             try {
                 const response = await fetch(`${baseUrl}${url}`, options);
+
                 if (response.ok) {
                     const json = await response.json();
                     setData(json);
@@ -27,5 +28,5 @@ export default function useFetch(url, options) {
         fetchData();
     }, [url, options]);
 
-    return { response: data, error, loading };
+    return { data, error, loading };
 }
