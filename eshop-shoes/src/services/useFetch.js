@@ -11,12 +11,17 @@ export default function useFetch(url, options) {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const res = await fetch(`${baseUrl}${url}`, options);
-                const json = await res.json();
-                setData(json);
-                setLoading(false);
+                const response = await fetch(`${baseUrl}${url}`, options);
+                if (response.ok) {
+                    const json = await response.json();
+                    setData(json);
+                } else {
+                    throw response;
+                }
             } catch (error) {
                 setError(error);
+            } finally {
+                setLoading(false);
             }
         };
         fetchData();
